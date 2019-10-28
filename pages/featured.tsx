@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SearchAppBar, Chip, Card } from '../../components'
-import { Container } from './styled'
+import { FeaturedContent } from '../components'
 
 const FeaturedPage = () => {
 
@@ -63,31 +62,7 @@ const FeaturedPage = () => {
   }
 
   return (
-    <Container>
-      <SearchAppBar onChange={() => {}} />
-
-      <div className="content">
-        <div className="nav">
-          <div className="title">Categories</div>
-          {tags && tags.map((tag, i) => (
-            <Chip label={tag.label} onClick={() => tagClicked(i)} selected={tag.selected} />
-          ))}
-        </div>
-
-        <div className="list">
-          {list && list.map(item => (
-            <Card
-              title={item.title}
-              img={item.img}
-              name={item.name}
-              tags={item.tags}
-              price={item.price}
-            />
-          ))}
-          
-        </div>
-      </div>
-    </Container>
+    <FeaturedContent list={list} tags={tags} onTagClick={(i) => tagClicked(i)} />
   )
 }
 

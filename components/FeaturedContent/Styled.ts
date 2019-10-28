@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import theme from '../../utils/theme'
+import styled from "styled-components";
+import theme from "../../utils/theme";
 
-export const Container = styled.div `
+export const Container = styled.div`
   background: ${theme.colors.pageBg};
   padding: 15px 2.5rem 0px 2.5rem;
   height: 100vh;
@@ -39,4 +39,4 @@ export const Container = styled.div `
 
 
   }
-`
+`;
