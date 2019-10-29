@@ -27,7 +27,7 @@ export const Container = styled.header `
   .nav div {
     display: inline;
     margin-right: 10px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     color: ${theme.colors.black};
 
