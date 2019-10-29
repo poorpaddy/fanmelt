@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchAppBar, Chip, Card } from '..'
+import { SearchAppBar, Chip, Card, Header } from "..";
 import { Container } from './Styled'
 
 interface ITag {
@@ -25,6 +25,7 @@ interface IProps {
 export const FeaturedContent = ({ tags, list, onTagClick }: IProps) => {
   return (
     <Container>
+      <Header />
       <SearchAppBar onChange={() => {}} />
 
       <div className="content">

@@ -2,9 +2,10 @@ const theme = {
   colors: {
     white: '#fff',
     red: '#ff0000',
-    pageBg: '#f5f5f5',
+    pageBg: '#ffffff',
     chipSelected: '#fa005c',
-    black: '#000'
+    black: '#000',
+    greyishWhite: '#f6f6ff'
   },
 
   deviceRes: {

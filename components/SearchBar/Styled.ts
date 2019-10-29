@@ -7,6 +7,7 @@ export const Container = styled.div `
   background: ${theme.colors.white};
   height: 72px;
   display: flex;
+  margin-top: 70px;
 
   .icon {
     padding-top: 23px;
