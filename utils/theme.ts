@@ -9,6 +9,8 @@ const theme = {
     grey: "grey",
     blue: "#337ab7",
     darkGrey: "#ddd",
+    cardMediumGrey: '#6c6c6c',
+    cardDarkGrey: '#4d4d4d',
   },
 
   deviceRes: {
