@@ -14,6 +14,7 @@ export const Container = styled.div`
   margin-bottom: 20px;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 25rem;
 
   @media (min-width: 1200px) {
     width: calc(25% - 20px);
@@ -25,6 +26,7 @@ export const Container = styled.div`
 
   @media (min-width: 250px) and (max-width: 767px) {
     width: 50%;
+    max-height: 20rem;
   }
 
   .details {
