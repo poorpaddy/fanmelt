@@ -11,9 +11,9 @@ const FeaturedPage = () => {
     /* Dummy condition */
     if (tags.length < 1) {
       const list = [
-        {name: 'actors', label: 'Actors', selected: true},
-        {name: 'athletes', label: 'Athletes', selected: false},
-        {name: 'tv', label: 'TV', selected: false}
+        {name: 'actors', label: 'Actors', selected: true, count: 2455},
+        {name: 'athletes', label: 'Athletes', selected: false, count: 123},
+        {name: 'tv', label: 'TV', selected: false, count: 455}
       ];
 
       setTags(list)
@@ -111,7 +111,9 @@ const FeaturedPage = () => {
   }
 
   return (
-    <FeaturedContent list={list} tags={tags} onTagClick={(i) => tagClicked(i)} />
+    <>
+      <FeaturedContent list={list} tags={tags} onTagClick={(i) => tagClicked(i)} />
+    </>
   )
 }
 

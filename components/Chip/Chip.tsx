@@ -6,15 +6,19 @@ interface IProps {
   onClick: () => void;
   label: string;
   selected: boolean;
+  count: number;
 }
 
-const Chip = ({ onClick, label, selected }: IProps) => {
+const Chip = ({ onClick, label, selected, count }: IProps) => {
   const handleClick = () => {
     onClick()
   }
 
   return (
-    <ChipElem label={label} className={`${selected ? 'selected' : ''}`} onClick={handleClick} />
+    <ChipElem className={`${selected ? "selected" : ""}`} onClick={handleClick}>
+      <div>{label}</div>
+      <div className="count">{`(${count})`}</div>
+    </ChipElem>
   );
 }
 

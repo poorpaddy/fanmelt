@@ -18,7 +18,7 @@ export const Card = ({ price, name, title, tags, img}: IProps) => {
         <div className="title">{title}</div>
         <div className="name">{name}</div>
         <div className="tags">
-          {tags && tags.map(tag => <span>{tag} </span>)}
+          {tags && tags.map(tag => <button>{tag}</button>)}
         </div>
       </div>
     </Container>

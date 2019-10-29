@@ -4,7 +4,7 @@ import theme from '../../utils/theme'
 
 export const Container = styled.div `
   position: relative;
-  width: 100%;
+  width: 97%;
   background: ${theme.colors.white};
   height: 72px;
   display: flex;
@@ -27,16 +27,16 @@ export const Container = styled.div `
 `
 
 export const Text = styled.input`
-         color: ${theme.colors.grey};
-         font-size: 24px;
-         padding-top: 34px;
-         padding-bottom: 20px;
-         box-shadow: inset 0 -1px 0 ${theme.colors.darkGrey};
-         width: 100%;
-         padding-left: 60px;
+  color: ${theme.colors.grey};
+  font-size: 24px;
+  padding-top: 34px;
+  padding-bottom: 20px;
+  box-shadow: inset 0 -1px 0 ${theme.colors.darkGrey};
+  width: 100%;
+  padding-left: 60px;
 
-         :focus {
-           outline: none;
-           box-shadow: inset 0 -2px 0 ${theme.colors.blue};
-         }
-       `;
+  :focus {
+    outline: none;
+    box-shadow: inset 0 -2px 0 ${theme.colors.blue};
+  }
+`;

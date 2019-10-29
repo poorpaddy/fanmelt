@@ -8,13 +8,24 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 10px;
-  height: 20rem;
-  width: 12rem;
+  height: 100%;
   border-radius: 4px;
   box-shadow: 4px 4px 17px hsla(0, 0%, 85.9%, 0.5);
   margin-bottom: 20px;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  @media (min-width: 1200px) {
+    width: calc(25% - 20px);
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 33.33%;
+  }
+
+  @media (min-width: 250px) and (max-width: 767px) {
+    width: 50%;
+  }
 
   .details {
     .title {
@@ -29,11 +40,18 @@ export const Container = styled.div`
       color: ${theme.colors.cardDarkGrey};
     }
 
-    .tags span {
+    .tags button {
+      outline: none;
+      background: transparent;
+      border: none;
       position: relative;
       font-size: 11px;
       color: ${theme.colors.cardMediumGrey};
-      padding-left: 7px;
+      padding-left: 8px;
+
+      :hover {
+        border-bottom: 1px solid ${theme.colors.cardMediumGrey};
+      }
 
       :nth-child(n+2) :before {
         width: 4px;
@@ -43,8 +61,8 @@ export const Container = styled.div`
         content: "aa";
         font-size: 2px;
         position: absolute;
-        top: 5px;
-        left: 0px;
+        top: 6px;
+        left: 2px;
         color: ${theme.colors.cardMediumGrey};
       }
     }
@@ -72,3 +90,4 @@ export const Img = styled.div`
   border-top-right-radius: 4px;
 `
 
+// col-lg-3 col-md-4 col-sm-4 col-xs-6

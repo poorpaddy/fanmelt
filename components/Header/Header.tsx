@@ -13,8 +13,6 @@ export const Header = () => {
   }, [])
 
   const checkHeader = _.throttle(() => {
-    console.log("checkHeader");
-
     // Detect scroll position
     let scrollPosition = Math.round(window.scrollY);
 
@@ -25,7 +23,10 @@ export const Header = () => {
 
   return (
     <Container className={additionalClass}>
-      <img src="https://d3el26csp1xekx.cloudfront.net/staticDir/logo_icon_color_2019.svg" width="30" height="30" />
+      <div className="logo">
+        <img src="https://d3el26csp1xekx.cloudfront.net/staticDir/logo_icon_color_2019.svg" width="30" height="30" />
+        <div className="logoCaption">Browse Talent</div>
+      </div>
 
       <div className="nav">
         <div>Signup</div>
