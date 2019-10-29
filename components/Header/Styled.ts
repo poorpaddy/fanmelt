@@ -14,13 +14,12 @@ export const Container = styled.header `
   transition: padding 300ms ease;
   z-index: 99;
 
-  .logo {
-    width: 40px;
-    height: 40px;
+  img {
+    margin-bottom: 0px;
   }
 
   &.sticky {
-    padding: 10px 20px;
+    padding: 20px 20px;
     background-color: ${theme.colors.greyishWhite};
   }
 
