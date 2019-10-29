@@ -34,6 +34,7 @@ export const Container = styled.div`
              }
 
              @media (max-width: 979px) {
+               width: 100%;
                .title {
                  width: 100%;
                  text-align: center;
