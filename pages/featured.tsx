@@ -8,6 +8,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 
+import { results, categories } from "../utils/data";
+
 const Index = () => (
   <>
     <Header />
@@ -17,15 +19,6 @@ const Index = () => (
 );
 
 export default Index;
-
-const categories = [
-  { name: "Featured", amount: 300 },
-  { name: "Actors", amount: 322 },
-  { name: "Athletes", amount: 300 },
-  { name: "Actors", amount: 322 },
-  { name: "Actors", amount: 322 },
-  { name: "Actors", amount: 322 }
-];
 
 const arr = Array.from(Array(50).keys());
 const NavBar = () => (
@@ -56,9 +49,13 @@ const Body = () => (
       <BodyRow>
         <CategoryContainer>
           <Title>Categories</Title>
-          {categories.map(({ name, amount }) => (
-            <CategoryItem name={name} amount={amount} />
-          ))}
+          {categories.map((category, i) => {
+            const { name, amount } = category;
+            if (i === 8) {
+              return <Sepatator />;
+            }
+            return <CategoryItem key={i} name={name} amount={amount} />;
+          })}
         </CategoryContainer>
         <ResultsContainer>
           <RecommendedWrapper>
@@ -75,8 +72,14 @@ const Body = () => (
             </RecommendedContainer>
           </RecommendedWrapper>
           <ResultsGrid>
-            {arr.map((item, i) => (
-              <Image key={i} />
+            {results.map((item, i) => (
+              <Image
+                price={item.price}
+                image={item.image}
+                title={item.title}
+                name={item.name}
+                tags={item.tags}
+              />
             ))}
           </ResultsGrid>
         </ResultsContainer>
@@ -233,6 +236,14 @@ const ResultsGrid = styled.div`
   flex-wrap: wrap;
 `;
 
+const Sepatator = styled.div`
+  height: 1px;
+  width: 90%;
+  border-left: none;
+  border-bottom: 1px solid #ececec;
+  margin: 16px 0 24px 5%;
+`;
+
 const CategoryItem = ({ name, amount }) => (
   <CategoryLink href="#">
     <CategoryLinkName>{name}</CategoryLinkName>
@@ -283,15 +294,24 @@ const Item = styled(MenuItem)`
   display: block;
 `;
 
-const Image = ({}) => (
+const Image = ({ price, image, title, name, tags }) => (
   <GridImageWrapper>
     <GridImageContainer>
-      <Price>$100</Price>
-      <ImageItem />
+      <Price>{}</Price>
+      <ImageItem>
+        <img src={image} alt="image" />
+      </ImageItem>
       <ImageContent>
-        <SmallTitle>TV Host - MTV's The Challenge - BMX Rider</SmallTitle>
-        <Title>John Doe</Title>
-        <SmallTitle bottom>Lorem Ipsum</SmallTitle>
+        <SmallTitle>{title}</SmallTitle>
+        <Title>{name}</Title>
+        <div className="flex">
+          {tags.length > 0 &&
+            tags.map((tag, i) => (
+              <SmallTitle key={i} bottom>
+                {tag}
+              </SmallTitle>
+            ))}
+        </div>
       </ImageContent>
     </GridImageContainer>
   </GridImageWrapper>
@@ -349,6 +369,12 @@ const ImageItem = styled.div`
   background: #eee;
   height: 70%;
   width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const ImageContent = styled.div`
@@ -370,7 +396,7 @@ const SmallTitle = styled.a`
     font-size: 13px;
     content: "•";
     padding: 0 3px;
-    display: inline-block;
+    display: ${props => (props.bottom ? "inline-block" : "none")};
   }
 
   &:hover {
