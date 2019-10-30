@@ -2,3 +2,4 @@
 *yarn-error.log*
 .next
 *.DS_Store*
+.idea/
