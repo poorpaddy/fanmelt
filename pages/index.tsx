@@ -2,32 +2,25 @@ import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import TextField from '@material-ui/core/TextField';
-import SearchIcon from '@material-ui/icons/Search';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import { useState, useRef, useLayoutEffect } from "react";
+import Fab from "@material-ui/core/Fab";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import { SocialIcon } from "react-social-icons";
 
 const Index = () => (
 	<>
 		<NavBar />
-		<Body />
+		<Hero />
+		<HowItWorks />
+		<FeaturedVideos />
+		<ReactionVideos />
+		<InfoBar />
 	</>
 );
 
 export default Index;
 
-const categories = [
-	{name: 'Featured', amount: 300},
-	{name: 'Actors', amount: 322},
-	{name: 'Athletes', amount: 300},
-	{name: 'Actors', amount: 322},
-	{name: 'Actors', amount: 322},
-	{name: 'Actors', amount: 322},
-];
-
-const arr = Array.from(Array(50).keys());
 const NavBar = () => (
 	<FlatAppBar position="fixed">
 		<Toolbar>
@@ -40,302 +33,199 @@ const NavBar = () => (
 	</FlatAppBar>
 );
 
-const Body = () => (
-	<BodyWrapper>
-		<BodyContainer>
-			<BodyRow>
-				<SearchContainer>
-					<SearchWrapper>
-						<Input placeholder="Try 'Brett Favre' or 'Real Housewives"/>
-						<SearchIconContainer>
-							<SearchIconItem color="primary" fontSize="large"/>
-						</SearchIconContainer>
-					</SearchWrapper>
-				</SearchContainer>
-			</BodyRow>
-			<BodyRow>
-				<CategoryContainer>
-					<Title>Categories</Title>
-					{
-						categories.map(({name, amount}) => (
-							<CategoryItem name={name} amount={amount}/>
-						))
-					}
-				</CategoryContainer>
-				<ResultsContainer>
-					<RecommendedWrapper>
-						<RecommendedContainer>
-							<FormControl>
-								<InputLabel id="recommended">Recommended</InputLabel>
-								<Select
-								>
-									<Item value={10}>Price High to Low</Item>
-									<Item value={20}>Price Low to High</Item>
-									<Item value={30}>Alphabet A-Z</Item>
-								</Select>
-							</FormControl>
-						</RecommendedContainer>
-					</RecommendedWrapper>
-					<ResultsGrid>
-						{
-							arr.map((item, i) => (
-								<Image key={i}/>
-							))
+const InfoBar = () => (
+	<InfoBarContainer>
+		<SocialButtons />
+		<ApplyButton>Apply as talent</ApplyButton>
+	</InfoBarContainer>
+);
+
+const Hero = () => {
+	const { positionElementRef, position: heroBottom } = usePosition();
+
+	return (
+		<>
+			<HeroContainer>
+				<InfoBar />
+				<ContentContainer>
+					<Title className="md:text-4xl text-3xl leading-tight font-bold text-center">
+						Book personalized video shoutouts from your favorite celebrities
+					</Title>
+					<Button variant="contained" color="primary" size="large">
+						Browse Celebrities
+					</Button>
+				</ContentContainer>
+				<ScrollButtonContainer>
+					<ScrollButton
+						variant="contained"
+						color="secondary"
+						size="large"
+						startIcon={<ArrowDownwardIcon />}
+						onClick={() =>
+							window.scrollTo({ behavior: "smooth", top: heroBottom - 64 })
 						}
-					</ResultsGrid>
-				</ResultsContainer>
-			</BodyRow>
-		</BodyContainer>
-	</BodyWrapper>
+					>
+						Learn More
+					</ScrollButton>
+				</ScrollButtonContainer>
+				<HeroBackground>
+					<Overlay />
+					{[1, 2, 3].map(num => (
+						<HeroPersonImage personNumber={num} />
+					))}
+				</HeroBackground>
+			</HeroContainer>
+			<span id="hero-bottom" ref={positionElementRef} />
+		</>
+	);
+};
+
+const SocialButtons = () => (
+	<div className="flex flex-row">
+		<SocialIcon
+			url="https://www.facebook.com/fanmelt"
+			bgColor="white"
+			style={{ height: 35, width: 35, marginRight: "10px" }}
+		/>
+		<SocialIcon
+			url="https://www.youtube.com/channel/UCinbHCC4oFD8uU8vMdR3olQ"
+			bgColor="white"
+			style={{ height: 35, width: 35, marginRight: "10px" }}
+		/>
+		<SocialIcon
+			url="https://twitter.com/fan_melt"
+			bgColor="white"
+			style={{ height: 35, width: 35, marginRight: "10px" }}
+		/>
+		<SocialIcon
+			url="https://www.instagram.com/fanmelt"
+			bgColor="white"
+			style={{ height: 35, width: 35, marginRight: "10px" }}
+		/>
+	</div>
 );
 
-const BodyWrapper = styled.div`
-	margin-top: 0;
-	padding-top: 70px;
-`;
-
-const BodyContainer = styled.div.attrs({ className:'container' })`
-	padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-`;
-
-const Title = styled.h3`
-	margin-top: 0;
-	font-weight: 700;
-	font-size: 25px;
-`;
-
-const BodyRow = styled.div`
-    margin-right: -15px;
-    margin-left: -15px;
-    display: flex;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    
-    @media (max-width: 992px) {
-    	display: flex;
-    	flex-direction: column;
-    }
-`;
-
-const SearchContainer = styled.div`
-	width: 100%;
-	padding-bottom: 16px;
-	margin-top: 24px;
-	position: relative;
-   
-`;
-
-const SearchWrapper = styled.div`
-	margin-bottom: 15px;
-    box-shadow: 0 1px 13px -4px hsla(0,0%,58%,.26);
-    background-color: #fff;
-    border: 1px solid hsla(0,0%,59.2%,.15);
-    position: relative;
-`;
-
-const Input = styled(TextField)`
-	width: 100%;
-	input {
-		&:focus{
-			box-shadow: inset 0 -2px 0 #337ab7;
-		}
-		line-height: 1.3;
-		font-size: 24px;
-		width: 100%;
-		height: 30px;
-		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-		padding: 26px 0 26px 56px;
-	}
-`;
-const SearchIconContainer = styled.div`
-	position: absolute;
-	left: 15px;
-    top: 20px;
-    height: 40px;
-`;
-
-const SearchIconItem = styled(SearchIcon)`
-	height: 100%;
-`;
-
-const CategoryContainer = styled.div.attrs({ className : 'w-1/6'})`
-    padding-bottom: 16px;
-    margin-top: 13px;
-    
-    @media (max-width: 992px) {
-    	display: flex;
-		position: relative;
-		padding-top: 12px;
-		padding-bottom: 0;
-		overflow-x: scroll;
-		white-space: nowrap;
-		border-radius: 4px;
-		width: 100% !important
-    }
-`;
-
-const ResultsContainer = styled.div.attrs({ className : 'w-5/6'})`
-	margin-left: auto;
-	margin-right: auto;
-	
-	@media (max-width: 992px) {
-		width: 100% !important;
-	}
-`;
-
-const RecommendedWrapper = styled.div`
-	margin-bottom: 16px;
-`;
-
-const RecommendedContainer = styled.div.attrs({ className: 'w-1/3 ml-auto' })`
-	div {
-		width: 100%;
-	}
-	
-	@media (max-width: 992px) {
-		width: 100% !important;
-	}
-`;
-
-const ResultsGrid = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-`;
-
-
-const CategoryItem = ({ name, amount }) => (
-	<CategoryLink href="#">
-		<CategoryLinkName>{name}</CategoryLinkName>
-		<CategoryLinkAmount>({amount})</CategoryLinkAmount>
-	</CategoryLink>
+const HowItWorks = () => (
+	<HowItWorksContainer>
+		<HowItWorksTitle>How It Works</HowItWorksTitle>
+		<StepsContainer>
+			<Steps>
+				<Step>
+					<StepImageContainer>
+						<StepImage stepNum={1} />
+					</StepImageContainer>
+					<StepDescription>1. Pick a celebrity</StepDescription>
+				</Step>
+				<Step>
+					<StepImageContainer>
+						<StepImage stepNum={2} />
+					</StepImageContainer>
+					<StepDescription>2. Request a video shoutout</StepDescription>
+				</Step>
+				<Step>
+					<StepImageContainer>
+						<StepImage stepNum={3} />
+					</StepImageContainer>
+					<StepDescription>3. Receive your video</StepDescription>
+				</Step>
+			</Steps>
+		</StepsContainer>
+	</HowItWorksContainer>
 );
 
-const CategoryLink = styled.a`
-	width: 100%;
-    padding: 9px 18px;
-    margin: 0 12px 7px 0;
-    display: inline-block;
-    transition: all .2s;
-    
-    &:active {
-    	background-color: #fa005c;
-    }
-    border-radius: 30px;
-    box-sizing: border-box;
-    color: #4d4d4d;
-    background-color: #f7f7f7;
-    
-    &:hover {
-    	background-color: #ececec;
-    }
-`;
+const FeaturedVideos = () => (
+	<FeaturedVideosContainer>
+		<FeaturedVideosTitle>Featured Videos</FeaturedVideosTitle>
+		<FeaturedVideosListContainer>
+			<FeaturedVideosList>
+				<FeaturedVideoContainer>
+					<FeaturedVideo featuredVideoNum={1}>
+						<PlayButton>
+							<PlayArrowIcon />
+						</PlayButton>
+					</FeaturedVideo>
+				</FeaturedVideoContainer>
 
-const CategoryLinkName = styled.span`
-	color: #4d4d4d;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-right: 3px;
-`;
+				<FeaturedVideoContainer>
+					<FeaturedVideo featuredVideoNum={2}>
+						<PlayButton>
+							<PlayArrowIcon />
+						</PlayButton>
+					</FeaturedVideo>
+				</FeaturedVideoContainer>
 
-const CategoryLinkAmount = styled.span`
-	color: #a1a1a1;
-`;
-
-const Item = styled(MenuItem)`
-	display: block
-`;
-
-const Image = ({}) => (
-	<GridImageWrapper>
-		<GridImageContainer>
-			<Price>
-				$100
-			</Price>
-			<ImageItem/>
-			<ImageContent>
-				<SmallTitle>
-					TV Host - MTV's The Challenge - BMX Rider
-				</SmallTitle>
-				<Title>
-					John Doe
-				</Title>
-				<SmallTitle>
-					Lorem Ipsum
-				</SmallTitle>
-			</ImageContent>
-		</GridImageContainer>
-	</GridImageWrapper>
+				<FeaturedVideoContainer>
+					<FeaturedVideo featuredVideoNum={3}>
+						<PlayButton>
+							<PlayArrowIcon />
+						</PlayButton>
+					</FeaturedVideo>
+				</FeaturedVideoContainer>
+			</FeaturedVideosList>
+		</FeaturedVideosListContainer>
+	</FeaturedVideosContainer>
 );
 
-const GridImageWrapper = styled.div.attrs({ className : 'w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4'})`
-	margin-bottom: 20px;
-    padding-right: 10px!important;
-    padding-left: 10px!important;
-    height: 350px;
-`;
+const ReactionVideos = () => (
+	<ReactionVideosContainer>
+		<ReactionVideosTitle>Reaction Videos</ReactionVideosTitle>
+		<ReactionTagsContainer>
+			<h3 className="text-xl mb-2"> Tag #fanmelt to get featured </h3>
+			<SocialButtons />
+		</ReactionTagsContainer>
+		<ReactionVideosListContainer>
+			<ReactionVideosList>
+				<FeaturedVideoContainer>
+					<ReactionVideo reactionVideoNum={1}>
+						<ReactionPlayButton>
+							<PlayArrowIcon />
+						</ReactionPlayButton>
+					</ReactionVideo>
+				</FeaturedVideoContainer>
 
-const GridImageContainer = styled.div`
-    box-shadow: 4px 4px 17px hsla(0,0%,85.9%,.5);
-    position: relative;
-    background-size: cover;
-    background-color: #fff;
-    overflow: hidden;
-    transition: all .2s cubic-bezier(.175,.885,.32,1.275);
-    border-radius: 5px;
-    cursor: pointer;
-    height: 100%;
-    
-    &:hover {
-    	transform: translateY(-3px);
-    }
-`;
+				<FeaturedVideoContainer>
+					<ReactionVideo reactionVideoNum={2}>
+						<ReactionPlayButton>
+							<PlayArrowIcon />
+						</ReactionPlayButton>
+					</ReactionVideo>
+				</FeaturedVideoContainer>
 
-const Price = styled.span`
-	color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    background-color: rgba(0,0,0,.4);
-    border-radius: 15px;
-    padding: 1px 14px;
-    position: absolute;
-    right: 11px;
-    top: 11px;
-    
-    @media (max-width: 992px) {
-    	font-size: 14px;
-    }
-`;
+				<FeaturedVideoContainer>
+					<ReactionVideo reactionVideoNum={3}>
+						<ReactionPlayButton>
+							<PlayArrowIcon />
+						</ReactionPlayButton>
+					</ReactionVideo>
+				</FeaturedVideoContainer>
 
-const ImageItem = styled.div`
-	background: #eee;
-	height: 70%;
-	width: 100%;
-`;
+				<FeaturedVideoContainer>
+					<ReactionVideo reactionVideoNum={4}>
+						<ReactionPlayButton>
+							<PlayArrowIcon />
+						</ReactionPlayButton>
+					</ReactionVideo>
+				</FeaturedVideoContainer>
 
-const ImageContent = styled.div`
-	height: 30%;
-	width: 100%;
-	padding: 10px 12px;
-`;
+				<FeaturedVideoContainer>
+					<ReactionVideo reactionVideoNum={5}>
+						<ReactionPlayButton>
+							<PlayArrowIcon />
+						</ReactionPlayButton>
+					</ReactionVideo>
+				</FeaturedVideoContainer>
 
-const SmallTitle = styled.div`
-	color: #6c6c6c;
-    font-size: 11px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    &:after {
-        font-size: 13px;
-		content: "•";
-		padding: 0 3px;
-		display: inline-block;
-    }
-`;
+				<FeaturedVideoContainer>
+					<ReactionVideo reactionVideoNum={6}>
+						<ReactionPlayButton>
+							<PlayArrowIcon />
+						</ReactionPlayButton>
+					</ReactionVideo>
+				</FeaturedVideoContainer>
+			</ReactionVideosList>
+		</ReactionVideosListContainer>
+	</ReactionVideosContainer>
+);
 
 const FlatAppBar = styled(AppBar)`
     box-shadow:none;
@@ -346,9 +236,330 @@ const LogoContainer = styled.div`
     display:flex;
     align-items:center;
     justify-content:flex-start;
-`;
+`
 
 const Logo = styled.img.attrs({ src: '/logo-cropped.png' })`
     max-height:50px;
     margin:0;
+`
+
+const HeroContainer = styled.div`
+    @media(min-width: 600px) {
+        margin-top: 64px;
+        height:calc(100vh - 64px);
+    }
+    margin-top:50px;
+    height: calc(100vh - 50px);
+    width:100vw;
+    position:relative;
+    display:grid;
+    grid-template-rows: auto 1fr auto;
+    color:white;
+`
+
+const HeroBackground = styled.div`
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    z-index:-1;
+`
+
+const ContentContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+`
+
+const ScrollButtonContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+const ScrollButton = styled(Button)`
+	color: white;
+	width: 100%;
+	background-color: #312f30;
+	:hover {
+		background-color: #312f30;
+	}
+`;
+
+const HeroPersonImage = styled.div`
+    ${({ personNumber }) => `
+        background-image: url(/hero-person-${personNumber}.jpg);
+        background-position: center;
+        background-size: cover;
+    `}
+    min-height:30px;
+    min-width:30px;
+`
+
+const Overlay = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgb(0, 0, 0, 0.6);
+`;
+
+const Title = styled.h1`
+    max-width: 30ch;
+    margin: 1ch;
+`
+
+const usePosition = () => {
+    const positionElementRef = useRef()
+    const [position, setPosition] = useState(0)
+
+    function updatePosition() {
+        if(positionElementRef.current) {
+            const element: any = positionElementRef.current
+            const { top } = element.getBoundingClientRect()
+            setPosition(window.pageYOffset+top)
+        }
+    }
+
+    useLayoutEffect(() => {
+        updatePosition()
+        window.addEventListener('resize', updatePosition)
+        window.addEventListener("scroll", updatePosition);
+        
+        return () => {
+            window.removeEventListener('resize', updatePosition)
+            window.removeEventListener("scroll", updatePosition);
+        }
+    }, [])
+
+    return { positionElementRef, position }
+}
+
+const InfoBarContainer = styled.div.attrs({ className:'px-4 py-6' })`
+    width:100%;
+    background-color:black;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+`
+
+const ApplyButton = styled(Button)`
+    color:white;
+    border:1px solid white;
+`
+
+const HowItWorksContainer = styled.div.attrs({ className: 'p-10' })`
+	color: white;
+	background-color: #312f30;
+    min-height:50vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+`;
+
+const StepsContainer = styled.div`
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+`
+
+const Steps = styled.ol`
+	display: grid;
+    width: 100%;
+    max-width:1024px;
+	@media (min-width: 1024px) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@media (max-width: 1024px) {
+		display:flex;
+        flex-direction:column;
+	}
+`;
+
+const StepImage = styled.div.attrs({ className: "shadow-2xl" })`
+	background-color: white;
+	height: 30vh;
+	width: 30vh;
+	border-radius: 100%;
+	margin: 0 auto;
+    border: 2px solid white;
+    background-image: url(/homepage-step-${props => props.stepNum}.jpg);
+    background-size:cover;
+    background-position:center;
+`;
+
+const StepImageContainer = styled.div`
+    width:100%;
+`
+
+const Step = styled.li.attrs({ className: "text-xl rounded-full" })`
+	display: grid;
+	text-align: center;
+	grid-template-rows: 1fr auto;
+	@media (max-width: 1024px) {
+		margin-bottom:60px;
+        :last-child {
+            margin-bottom:0;
+        }
+	}
+`;
+
+const StepDescription = styled.p.attrs({ className:'mt-6' })`
+    min-height:20px;
+    font-weight:medium;
+`
+
+const HowItWorksTitle = styled.h2.attrs({ className: "text-3xl text-center font-bold mb-10" })``
+
+const FeaturedVideosTitle = styled.h1.attrs({ className: "text-3xl text-center font-bold mb-10" })``
+
+const FeaturedVideosContainer = styled.div.attrs({ className: "p-10" })`
+	color: white;
+	background-color: #8a59d9;
+	min-height: 75vh;
+    display:grid;
+    grid-template-rows: auto 1fr;
+`;
+
+const FeaturedVideosListContainer = styled.div`
+    height:100%;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+`
+
+const FeaturedVideosList = styled.ul`
+    max-width:1024px;
+    height:100%;
+    width:100%;
+
+	@media (min-width: 1024px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@media (max-width: 1024px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+`;
+
+const FeaturedVideo = styled.div.attrs({ className: "shadow-lg rounded" })`
+	background-color: white;
+	max-width: 300px;
+	height: 100%;
+	width: 100%;
+	min-height: 300px;
+	background-image: url(/featured-video-${props => props.featuredVideoNum}.jpg);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	:hover {
+		cursor: pointer;
+	}
+`;
+
+const FeaturedVideoContainer = styled.li`
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    width:100%;
+    min-height:300px;
+    margin-bottom:20px;
+`
+
+const PlayButton = styled(Fab).attrs({ color: "primary", variant: "contained" })`
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	bottom: 10px;
+	right: 10px;
+    border-radius: 100%;
+`;
+
+const ReactionVideosContainer = styled.div.attrs({ className: "p-10" })`
+	color: white;
+	background-color: #596dd9;
+	min-height: 75vh;
+	display: grid;
+    grid-template-rows: auto 1fr;
+    text-align:center;
+`;
+
+const ReactionVideosTitle = styled.h1.attrs({
+	className: "text-3xl text-center font-bold"
+})``;
+
+const ReactionVideosListContainer = styled.div`
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+const ReactionTagsContainer = styled.div.attrs({ className:'mb-10' })`
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+`
+
+const ReactionVideosList = styled.ul`
+	max-width: 1024px;
+	height: 100%;
+	width: 100%;
+
+	@media (min-width: 1024px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-row-gap: 20px;
+		max-width: 950px;
+	}
+	@media (max-width: 1024px) and (min-width: 700px) {
+		display: grid;
+		max-width: 640px;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-row-gap: 20px;
+	}
+	@media (max-width: 700px) {
+		display: flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+	}
+`;
+
+const ReactionVideo = styled.div.attrs({ className: "shadow-lg rounded" })`
+	background-color: white;
+	max-width: 300px;
+	height: 100%;
+	width: 100%;
+	min-height: 300px;
+	background-image: url(/reaction-video-${props => props.reactionVideoNum}.jpg);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	:hover {
+		cursor: pointer;
+	}
+`;
+
+const ReactionPlayButton = styled(PlayButton)`
+	background-color: rgb(89, 109, 217);
+	:hover {
+		background-color: #3f4d9c;
+	}
 `;
