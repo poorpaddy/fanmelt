@@ -291,7 +291,7 @@ const Image = ({}) => (
       <ImageContent>
         <SmallTitle>TV Host - MTV's The Challenge - BMX Rider</SmallTitle>
         <Title>John Doe</Title>
-        <SmallTitle>Lorem Ipsum</SmallTitle>
+        <SmallTitle bottom>Lorem Ipsum</SmallTitle>
       </ImageContent>
     </GridImageContainer>
   </GridImageWrapper>
@@ -371,6 +371,10 @@ const SmallTitle = styled.a`
     content: "•";
     padding: 0 3px;
     display: inline-block;
+  }
+
+  &:hover {
+    text-decoration: ${props => (props.bottom ? "underline" : null)};
   }
 `;
 
