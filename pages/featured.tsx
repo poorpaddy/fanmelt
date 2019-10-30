@@ -52,7 +52,7 @@ const Body = () => (
           {categories.map((category, i) => {
             const { name, amount } = category;
             if (i === 8) {
-              return <Sepatator />;
+              return <Sepatator key={i} />;
             }
             return <CategoryItem key={i} name={name} amount={amount} />;
           })}
@@ -74,6 +74,7 @@ const Body = () => (
           <ResultsGrid>
             {results.map((item, i) => (
               <Image
+                key={i}
                 price={item.price}
                 image={item.image}
                 title={item.title}
