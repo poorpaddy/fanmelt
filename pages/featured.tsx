@@ -322,11 +322,11 @@ const GridImageWrapper = styled.div.attrs({
   className: "lg:w-1/3 xl:w-1/4"
 })`
   margin-bottom: 20px;
-  min-height: 180px;
+  min-height: 170px;
   max-height: 350px;
   padding-right: 5px !important;
   padding-left: 5px !important;
-  min-width: 180px;
+  min-width: 170px;
 
   @media (max-width: 1024px) {
     width: 33.333333% !important;
