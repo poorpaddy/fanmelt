@@ -106,6 +106,10 @@ const Title = styled.h3`
   font-weight: 700;
   font-size: 25px;
   margin-right: 10px;
+
+  @media (max-width: 320px) {
+    display: none;
+  }
 `;
 
 const BodyRow = styled.div`
@@ -326,13 +330,18 @@ const GridImageWrapper = styled.div.attrs({
   max-height: 350px;
   padding-right: 5px !important;
   padding-left: 5px !important;
-  min-width: 170px;
+  min-width: 145px;
 
   @media (max-width: 1024px) {
     width: 33.333333% !important;
   }
   @media (max-width: 768px) {
     width: 50% !important;
+  }
+
+  @media (max-width: 320px) {
+    /* width: 150px; */
+    height: 220px;
   }
 `;
 
