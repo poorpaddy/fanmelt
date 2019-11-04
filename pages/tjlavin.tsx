@@ -336,14 +336,14 @@ const BodyContainer = styled.div.attrs({ className: "container" })`
 `;
 
 const Title = styled.h3`
-  margin-top: 0;
+  color: #4d4d4d;
+  margin: 0;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
   font-weight: 700;
-  font-size: 25px;
-  margin-right: 10px;
-
-  @media (max-width: 320px) {
-    display: none;
-  }
 `;
 
 const BodyRow = styled.div`
@@ -716,8 +716,9 @@ const Price = styled.span`
 
 const ImageItem = styled.div`
   background: #eee;
-  height: 70%;
+  height: 100%;
   width: 100%;
+  max-height: 280px;
 
   img {
     width: 100%;
