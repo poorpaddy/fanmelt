@@ -197,6 +197,7 @@ const ReviewTitle = styled.div`
 `
 const ReviewDesc = styled.div`
     width: 66.6666%;
+    max-width: 420px;
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -264,6 +265,7 @@ const ButtonContainer = styled.a`
     max-width: 100%;
     @media (max-width: 768px) {
       width: 100%;
+      margin-right: 0px;
    }
 `
 const TopSectionButtonContainer = styled.div`
@@ -295,7 +297,11 @@ const TopSectionTitle = styled.div`
 `;
 
 const TopSectionRightContent =  styled.div`
-  padding-left: 30px
+  padding-left: 30px;
+  @media (max-width: 768px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 `;
 
 const TopSectionContainer = styled.div`
@@ -320,6 +326,9 @@ const BodyContainer = styled.div.attrs({ className: "container" })`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  @media (min-width: 1280px){
+    max-width: 1170px;
+  }
   @media (max-width: 768px) {
     max-width: 100%;
     padding: 0px;
@@ -629,7 +638,7 @@ const RealtedItem = () => (
 );
 
 const GridImageWrapper = styled.div.attrs({
-  className: "lg:w-1/3 xl:w-1/4"
+  className: "w-1/4"
 })`
   margin-bottom: 20px;
   min-height: 170px;
@@ -638,9 +647,6 @@ const GridImageWrapper = styled.div.attrs({
   padding-left: 5px !important;
   min-width: 145px;
 
-  @media (max-width: 1024px) {
-    width: 33.333333% !important;
-  }
   @media (max-width: 768px) {
     width: 50% !important;
   }
@@ -653,7 +659,9 @@ const GridImageWrapper = styled.div.attrs({
 
 const TopSectionLeftContainer = styled.div`
   width: 33.333333%;
+  max-width: 280px;
   img {
+    width: 100%;
     border-radius: 10px;
     @media (max-width: 768px) {
       width: 100%;
@@ -662,6 +670,7 @@ const TopSectionLeftContainer = styled.div`
   }
   @media (max-width: 768px) {
     width: 100%;
+    max-width: 100%;
   }
 `;
 
@@ -669,6 +678,7 @@ const TopSectionRightContainer =  styled.div`
   width: 66.666666%;
   @media (max-width: 768px) {
     width: 100%;
+    
   }
 `;
 
