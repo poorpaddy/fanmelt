@@ -12,23 +12,29 @@ export const Container = styled.div.attrs({ className: "container" })`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  @media (min-width: 1280px){
+    max-width: 1170px;
+  }
 `;
 
 export const FooterContainer = styled.div`
   width: 100%;
   display: flex;
-
+  @media (min-width: 1200px){
+    margin-left: 8.333333%;
+    margin-right: 8.333333%;
+  }
   @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
   }
 `;
 
-export const MailingListWrapper = styled.div.attrs({ className: "w-1/2" })`
+export const MailingListWrapper = styled.div.attrs({ className: "w-full" })`
   margin-bottom: 16px;
 `;
 
-export const SocialsWrapper = styled.div.attrs({ className: "w-1/2" })`
+export const SocialsWrapper = styled.div.attrs({ className: "w-full" })`
   margin-bottom: 16px;
 
   div {

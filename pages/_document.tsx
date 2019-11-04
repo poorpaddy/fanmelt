@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html,Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/styles";
 import { ServerStyleSheet } from "styled-components";
 import { theme } from "services/shared/MaterialUI";
@@ -46,7 +46,7 @@ class CustomDocument extends Document<Props> {
   render() {
     const { styles } = this.props;
     return (
-      <html>
+      <Html>
         <Head>
           <meta charSet="utf-8" />
           <meta
@@ -54,7 +54,6 @@ class CustomDocument extends Document<Props> {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <h1>My page</h1>
           {styles}
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
@@ -63,7 +62,7 @@ class CustomDocument extends Document<Props> {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

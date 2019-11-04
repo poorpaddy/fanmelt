@@ -16,6 +16,7 @@ export const Container = styled.header `
 
   img {
     margin-bottom: 0px;
+    height: 30px;
   }
 
   .logo {
