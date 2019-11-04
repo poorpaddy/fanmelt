@@ -320,6 +320,10 @@ const BodyContainer = styled.div.attrs({ className: "container" })`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 0px;
+  }
 `;
 
 const Title = styled.h3`
@@ -380,6 +384,10 @@ const ResultsContainer = styled.div.attrs({ className: "w-6/6" })`
 
   @media (max-width: 1024px) {
     width: 100% !important;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 `;
 
@@ -451,17 +459,34 @@ const CatListItem = () => (
         <CatItemVideoSection>
             <CatImageItem>
                 <img src={'/tjlavin_bottom.png'} alt="image" />
+                <ImgBtnContainer>
+                    <ImgBtnLeftContainer>
+                        <img src="/play.svg" alt="image" />
+                    </ImgBtnLeftContainer>
+                    <ImgBtnRightContainer>
+                        <img src={'heart-white.svg'} alt='image' />
+                        <img src={'message-circle-white.svg'} alt='image' />
+                    </ImgBtnRightContainer>
+                </ImgBtnContainer>
             </CatImageItem>
         </CatItemVideoSection>
       </CatItemContainer>
     </CatItemWrapper>
 );
+const ImgBtnContainer = styled.div`
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
 const CatImageItem = styled.div`
   height: 70%;
   width: 100%;
 
   img {
-    background: #ffffff;
     border-radius: 24px;
     border-top-left-radius: 0px;
     width: 100%;
@@ -539,6 +564,7 @@ const CatItemTxtSection = styled.div`
 `
 const CatItemWrapper = styled.div.attrs({
     className: "xl:w-1/3"
+
 })`
   margin-bottom: 20px;
   min-height: 270px;
@@ -550,8 +576,43 @@ const CatItemWrapper = styled.div.attrs({
 
   @media (max-width: 768px) {
     width: 100% !important;
+    margin: 20px 30px;
   }
 `;
+const ImgBtnRightContainer = styled.div`
+    display: flex;
+    align-items: center;
+    img {
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        margin-bottom: 0px;
+        margin-left: 20px;
+        transform: scale(1);
+        transition: transform .1s;
+        &:hover {
+            transform: scale(1.3);
+            transition: transform .1s;
+        }
+    }
+`
+const ImgBtnLeftContainer = styled.div`
+    display: flex;
+    align-items: center;
+    img {
+        width: 60px;
+        height: 60px;
+        background: transparent;
+        margin-bottom: 0px;
+        transform: scale(1);
+        transition: transform .1s;
+        
+        &:hover {
+            transform: scale(1.3);
+            transition: transform .1s;
+        }
+    }
+`
 const RealtedItem = () => (
   <GridImageWrapper>
     <GridImageContainer>
