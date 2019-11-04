@@ -353,6 +353,10 @@ const BodyRow = styled.div`
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  @media (min-width: 1200px) {
+    margin-left: 8.333333%;
+    margin-right: 8.333333%;
+  }
 
   @media (max-width: 1024px) {
     display: flex;
