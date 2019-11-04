@@ -48,7 +48,7 @@ const Body = () => (
       </BodyRow>
       <BodyRow>
         <CategoryContainer>
-          <Title>Categories</Title>
+          <CategoryTitle>Categories</CategoryTitle>
           {categories.map((category, i) => {
             const { name, amount } = category;
             if (i === 8) {
@@ -106,8 +106,15 @@ const Title = styled.h3`
   font-weight: 700;
   font-size: 25px;
   margin-right: 10px;
+`;
 
-  @media (max-width: 320px) {
+const CategoryTitle = styled.h3`
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 25px;
+  margin-right: 10px;
+
+  @media (max-width: 620px) {
     display: none;
   }
 `;
