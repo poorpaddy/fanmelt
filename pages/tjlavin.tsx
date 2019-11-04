@@ -14,7 +14,7 @@ import { results, categories } from "../utils/data";
 
 const Index = () => (
   <>
-    <Header />
+    <NavBar />
     <Body />
     <Footer />
   </>

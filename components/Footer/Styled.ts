@@ -24,11 +24,11 @@ export const FooterContainer = styled.div`
   }
 `;
 
-export const MailingListWrapper = styled.div.attrs({ className: "w-1/2" })`
+export const MailingListWrapper = styled.div.attrs({ className: "w-full" })`
   margin-bottom: 16px;
 `;
 
-export const SocialsWrapper = styled.div.attrs({ className: "w-1/2" })`
+export const SocialsWrapper = styled.div.attrs({ className: "w-full" })`
   margin-bottom: 16px;
 
   div {
