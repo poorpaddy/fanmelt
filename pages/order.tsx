@@ -4,11 +4,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import CheckIcon from "@material-ui/icons/Check";
-
 import MenuItem from "@material-ui/core/MenuItem";
 import { Footer } from "../components/Footer/Footer";
 
-import { results, categories } from "../utils/data";
 
 const Index = () => (
     <>
@@ -20,7 +18,6 @@ const Index = () => (
 
 export default Index;
 
-const arr = Array.from(Array(50).keys());
 const NavBar = () => (
     <FlatAppBar position="fixed">
         <Toolbar>
@@ -401,20 +398,6 @@ const TalentLink = styled.a`
     letter-spacing: .1px;
     font-size: 18px;
 `;
-const Container = styled.div `
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-        
-    @media (min-width: 992px) {
-        width: 970px
-    }
-    
-    @media (min-width: 1200px) {
-        width: 1170px
-    }
-`;
 const LeftCol = styled.div`    
     position: relative;
     min-height: 1px;    
@@ -491,18 +474,6 @@ const Separator = styled.div`
         display: none;
     }
 `;
-// const OrderHeader = styled.div`
-//     background: red;
-// `
-// const OrderHeader = styled.div`
-//     background: red;
-// `
-// const OrderHeader = styled.div`
-//     background: red;
-// `
-// const OrderHeader = styled.div`
-//     background: red;
-// `
 const ResultTitle = styled.div`
     font-size: 25px;
     font-weight: 700;
@@ -563,33 +534,6 @@ const BodyRow = styled.div`
   }
 `;
 
-const Input = styled(TextField)`
-  width: 100%;
-  input {
-    &:focus {
-      box-shadow: inset 0 -2px 0 #337ab7;
-    }
-    line-height: 1.3;
-    font-size: 24px;
-    width: 100%;
-    height: 30px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    padding: 26px 0 26px 56px;
-  }
-`;
-
-const Select = styled.select`
-  border: 0;
-  border-radius: 0;
-  appearance: none;
-  width: 100%;
-  height: 38px;
-  padding: 6px 16px;
-  box-shadow: inset 0 -1px 0 #ddd;
-  font-size: 16px;
-  line-height: 1.5;
-  background: transparent;
-`;
 const ResultsContainer = styled.div.attrs({ className: "w-6/6" })`
   margin-left: auto;
   margin-right: auto;
@@ -608,216 +552,6 @@ const ResultsGrid = styled.div`
   flex-wrap: wrap;
 `;
 
-const CategoryLink = styled.a`
-  width: 100%;
-  padding: 9px 18px;
-  margin: 0 12px 7px 0;
-  display: inline-block;
-  transition: all 0.2s;
-  &:nth-of-type(1) {
-    background-color: #fa005c;
-    span {
-      color: #fff !important;
-    }
-  }
-  &:active {
-    background-color: #fa005c;
-  }
-  border-radius: 30px;
-  box-sizing: border-box;
-  color: #4d4d4d;
-  background-color: #f7f7f7;
-  &:hover {
-    background-color: #ececec;
-  }
-`;
-
-const CategoryLinkName = styled.span`
-  color: #4d4d4d;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-right: 3px;
-`;
-
-const CategoryLinkAmount = styled.span`
-  color: #a1a1a1;
-`;
-
-const Item = styled(MenuItem)`
-  display: block;
-`;
-const CatListItem = () => (
-    <CatItemWrapper>
-        <CatItemContainer>
-            <CatItemTxtSection>
-                <CatItemLeftContent>
-                    <CatLeftTxt>
-                        A
-                    </CatLeftTxt>
-                </CatItemLeftContent>
-                <CatItemRightContent>
-                    <CatItemTitle>
-                        By Cubby for Brian
-                    </CatItemTitle>
-                    <CatItemDetailTxt>
-                        Details
-                    </CatItemDetailTxt>
-                </CatItemRightContent>
-            </CatItemTxtSection>
-            <CatItemVideoSection>
-                <CatImageItem>
-                    <img src={'/tjlavin_bottom.png'} alt="image" />
-                    <ImgBtnContainer>
-                        <ImgBtnLeftContainer>
-                            <img src="/play.svg" alt="image" />
-                        </ImgBtnLeftContainer>
-                        <ImgBtnRightContainer>
-                            <img src={'heart-white.svg'} alt='image' />
-                            <img src={'message-circle-white.svg'} alt='image' />
-                        </ImgBtnRightContainer>
-                    </ImgBtnContainer>
-                </CatImageItem>
-            </CatItemVideoSection>
-        </CatItemContainer>
-    </CatItemWrapper>
-);
-const ImgBtnContainer = styled.div`
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
-const CatImageItem = styled.div`
-  height: 70%;
-  width: 100%;
-  img {
-    border-radius: 24px;
-    border-top-left-radius: 0px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-const CatLeftTxt = styled.div`
-    font-weight: 700;
-    font-size: 24px;
-    padding-bottom: 2px;
-    text-transform: uppercase;
-`
-const CatItemContainer = styled.div`
-  box-shadow: 0 2PX 32PX 0 RGBA(0,0,0,.15);
-  position: relative;
-  background-size: cover;
-  background-color: #fff;
-  overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 24px;
-  /* cursor: pointer; */
-  height: 100%;
-  &:hover {
-    transform: translateY(-3px);
-  }
-`
-const CatItemDetailTxt = styled.div`
-    color: #999;
-    font-size: 14px;
-    font-weight: 500;
-`
-const CatItemTitle = styled.div`
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 200px;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.3;
-    @media (max-width: 1280px) {
-        width: 150px;
-      }
-    @media (max-width: 1024px) {
-        width: 100px;
-      }
-`
-const CatItemVideoSection = styled.div`
-    
-`
-const CatItemLeftContent = styled.div`
-    border-color: rgb(213, 56, 255);
-    background-color: rgb(213, 56, 255);
-    backgroundc-clip: border-box;
-    background-image: none;
-    algign-items: center;
-    background-position: top;
-    border-radius: 50%;
-    display: flex;
-    height: 36px;
-    justify-content: center;
-    margin-right: 14px;
-    width: 36px;
-`
-const CatItemRightContent = styled.div`
-    
-`
-const CatItemTxtSection = styled.div`
-    display: flex;
-    padding: 10px 15px;
-    color: #212121;
-    border-color: #dddddd'
-    border-bottom: none;
-`
-const CatItemWrapper = styled.div.attrs({
-    className: "xl:w-1/3"
-
-})`
-  margin-bottom: 20px;
-  min-height: 270px;
-  max-height: 650px;
-  padding-right: 10px !important;
-  padding-left: 10px !important;
-  min-width: 145px;
-  width: 33.3333% !important;
-  @media (max-width: 768px) {
-    width: 100% !important;
-    margin: 20px 30px;
-  }
-`;
-const ImgBtnRightContainer = styled.div`
-    display: flex;
-    align-items: center;
-    img {
-        width: 24px;
-        height: 24px;
-        background: transparent;
-        margin-bottom: 0px;
-        margin-left: 20px;
-        transform: scale(1);
-        transition: transform .1s;
-        &:hover {
-            transform: scale(1.3);
-            transition: transform .1s;
-        }
-    }
-`
-const ImgBtnLeftContainer = styled.div`
-    display: flex;
-    align-items: center;
-    img {
-        width: 60px;
-        height: 60px;
-        background: transparent;
-        margin-bottom: 0px;
-        transform: scale(1);
-        transition: transform .1s;
-        
-        &:hover {
-            transform: scale(1.3);
-            transition: transform .1s;
-        }
-    }
-`
 const RealtedItem = () => (
     <GridImageWrapper>
         <GridImageContainer>
@@ -848,31 +582,6 @@ const GridImageWrapper = styled.div.attrs({
   @media (max-width: 320px) {
     /* width: 150px; */
     height: 220px;
-  }
-`;
-
-const TopSectionLeftContainer = styled.div`
-  width: 33.333333%;
-  max-width: 280px;
-  img {
-    width: 100%;
-    border-radius: 10px;
-    @media (max-width: 768px) {
-      width: 100%;
-      border-radius: 0px;
-    }
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-    max-width: 100%;
-  }
-`;
-
-const TopSectionRightContainer =  styled.div`
-  width: 66.666666%;
-  @media (max-width: 768px) {
-    width: 100%;
-    
   }
 `;
 
