@@ -10,11 +10,12 @@ You need the following to run this app:
 
 Open a terminal at the repo root, and run the following:
 
+```bash
 1. install now cli 
      npm i -g now
 2. install packages
     yarn install
 3. run project
     sudo now dev
-
+```
 Your app will be available at http://localhost:3000.
