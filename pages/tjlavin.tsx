@@ -5,12 +5,9 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import StarIcon from "@material-ui/icons/Star";
 import BoltIcon from "@material-ui/icons/OfflineBoltSharp";
-
 import MenuItem from "@material-ui/core/MenuItem";
-import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 
-import { results, categories } from "../utils/data";
 
 const Index = () => (
   <>
@@ -22,7 +19,6 @@ const Index = () => (
 
 export default Index;
 
-const arr = Array.from(Array(50).keys());
 const NavBar = () => (
   <FlatAppBar position="fixed">
     <Toolbar>
@@ -364,33 +360,6 @@ const BodyRow = styled.div`
   }
 `;
 
-const Input = styled(TextField)`
-  width: 100%;
-  input {
-    &:focus {
-      box-shadow: inset 0 -2px 0 #337ab7;
-    }
-    line-height: 1.3;
-    font-size: 24px;
-    width: 100%;
-    height: 30px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    padding: 26px 0 26px 56px;
-  }
-`;
-
-const Select = styled.select`
-  border: 0;
-  border-radius: 0;
-  appearance: none;
-  width: 100%;
-  height: 38px;
-  padding: 6px 16px;
-  box-shadow: inset 0 -1px 0 #ddd;
-  font-size: 16px;
-  line-height: 1.5;
-  background: transparent;
-`;
 const ResultsContainer = styled.div.attrs({ className: "w-6/6" })`
   margin-left: auto;
   margin-right: auto;
@@ -409,48 +378,6 @@ const ResultsGrid = styled.div`
   flex-wrap: wrap;
 `;
 
-const CategoryLink = styled.a`
-  width: 100%;
-  padding: 9px 18px;
-  margin: 0 12px 7px 0;
-  display: inline-block;
-  transition: all 0.2s;
-
-  &:nth-of-type(1) {
-    background-color: #fa005c;
-
-    span {
-      color: #fff !important;
-    }
-  }
-
-  &:active {
-    background-color: #fa005c;
-  }
-  border-radius: 30px;
-  box-sizing: border-box;
-  color: #4d4d4d;
-  background-color: #f7f7f7;
-
-  &:hover {
-    background-color: #ececec;
-  }
-`;
-
-const CategoryLinkName = styled.span`
-  color: #4d4d4d;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-right: 3px;
-`;
-
-const CategoryLinkAmount = styled.span`
-  color: #a1a1a1;
-`;
-
-const Item = styled(MenuItem)`
-  display: block;
-`;
 const CatListItem = () => (
     <CatItemWrapper>
       <CatItemContainer>
