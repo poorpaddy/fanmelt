@@ -4,10 +4,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import CheckIcon from "@material-ui/icons/Check";
-import BoltIcon from "@material-ui/icons/OfflineBoltSharp";
 
 import MenuItem from "@material-ui/core/MenuItem";
-import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 
 import { results, categories } from "../utils/data";
@@ -116,11 +114,40 @@ const Body = () => (
                             <DetailTitle>
                                 What happens next?
                             </DetailTitle>
-                            Check your email, We sent a confirmation to liamdanielduffy@gmail.com
-                            Adam Pike has 4 days to complete your request
-                            When your request is completed, we'll email you a link to review, share, or download your Cameo
-                            if Adam Pike isn't able to complete your request, the $5 hold on your card will be removed within 5~7
-                            business days.
+                            <RightContentRow>
+                                <ImageContainer>
+                                    <img src={'/confirmation-email.svg'} alt={'image'} />
+                                </ImageContainer>
+                                <RowTextContent>
+                                    Check your email, We sent a confirmation to <b>liamdanielduffy@gmail.com</b>
+                                </RowTextContent>
+                            </RightContentRow>
+                            <RightContentRow>
+                                <ImageContainer>
+                                    <img src={'/confirmation-calendar.svg'} alt={'image'} />
+                                </ImageContainer>
+                                <RowTextContent>
+                                    <TalentLink> Adam Pike </TalentLink> has <b>4 days</b> to complete your request
+                                </RowTextContent>
+                            </RightContentRow>
+                            <RightContentRow>
+                                <ImageContainer>
+                                    <img src={'/confirmation-computer.svg'} alt={'image'} />
+                                </ImageContainer>
+                                <RowTextContent>
+                                    When your request is completed, we'll email you a link to review, share, or download your Cameo
+                                </RowTextContent>
+                            </RightContentRow>
+                            <RightContentRow>
+                                <ImageContainer>
+                                    <img src={'/confirmation-credit-card.svg'} alt={'image'} />
+                                </ImageContainer>
+                                <RowTextContent>
+                                    if <TalentLink>  Adam Pike </TalentLink>
+                                    isn't able to complete your request, the <b>$5</b> hold on your card will be removed within 5~7
+                                    business days.
+                                </RowTextContent>
+                            </RightContentRow>
                         </RightContentContainer>
                     </RightContentWrapper>
                 </RightCol>
@@ -141,13 +168,61 @@ const Body = () => (
         </BodyContainer>
     </BodyWrapper>
 );
-const RightContentContainer = styled.div`
-    padding: 0 40px;   
+const ImageContainer = styled.div`
+    height: 50px;
+    left: -15px;
+    padding: 10px 0;
+    position: relative;
+    img {
+        height: 30px;
+        width: 30px;
+        min-width: 30px;
+        background: #f7f7f7;
+    }
 `
-const RightContentWrapper = styled.div`
-    margin-left: 8.33%;
+const RowTextContent = styled.div`
+    
+`
+const RightContentRow = styled.div`
+    align-items: center;
+    display: flex;
+    margin-left: 15px;
+    min-height: 54px;
+    padding-bottom: 30px;
+    color: #4d4d4d;
+    
+`
+const RightContentContainer = styled.div`
+    padding: 0 40px;
+    @media screen and (max-width: 992px){
+        padding: 20px 15px;
+    }
+    &:before {
+        border-left: 1px solid #e5e5e5;
+        bottom: 18%;
+        content: "";
+        display: inline-block;
+        height: 60%;
+        left: 44px;
+        margin: 0 auto;
+        position: absolute;
+        top: 22%;
+        width: 0;
+        @media screen and (min-width: 992px){
+            bottom: 16%;
+            height: 67%;
+            left: 69px;
+            top: 17%;
+        }
+    }
+`
+const RightContentWrapper = styled.div`   
     padding-left: 15px;
     padding-right: 15px;    
+    position: relative;
+    @media screen and (min-width: 992px){
+        margin-left: 8.33%;
+    }
 `
 const OrderBtnContainer = styled.div`
     display: flex;
@@ -295,6 +370,17 @@ const MessageContent = styled.span `
     line-height: 1.1;
     -webkit-font-smoothing: antialiased;
     letter-spacing: .1px;  
+    svg {
+        background: #fa005c;
+        color: white;
+        border-radius: 50%;
+        margin-bottom: 11px;
+        margin-right: 10px;
+        
+        @media (max-width: 992px) {
+            display: none;
+        }
+    }
 `;
 const OrderStatus = styled.div`
     z-index: 3;
@@ -304,6 +390,9 @@ const OrderStatus = styled.div`
     font-size: 18px;
     letter-spacing: 0.1px;
     -webkit-font-smoothing: antialiased;
+    @media (max-width: 992px) {
+        text-align: left;
+    }
 `
 const TalentLink = styled.a`
     color: #337ab7;
@@ -329,21 +418,23 @@ const Container = styled.div `
 const LeftCol = styled.div`    
     position: relative;
     min-height: 1px;    
+    padding-right: 15px;
+    padding-left: 15px;
     
-    @media (min-width: 992px) {
-        padding-right: 15px;
-        padding-left: 15px;
+    @media (min-width: 992px) {       
         float: left;
         width: 50%
     }
 `;
 const RightCol = styled.div`
-    float: left;
     position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    width: 50%;
+    min-height: 1px;    
+    @media (min-width: 992px) {       
+        float: left;
+        width: 50%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 `;
 const RequestDetails = styled.div`
     background: #fff;
@@ -377,19 +468,8 @@ const BlockSeparator = styled.div`
     position: relative;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
-    left: -30px;
-   
-    &:before {
-        background: #f7f7f7;
-        content: "";
-        height: 50px;
-        position: absolute;
-        top: -20px;
-        width: 40px;
-    }
-    
-    &:after {
-    }
+    left: 0px;
+  
     
     @media (min-width: 992px) {
         display: none;
@@ -406,6 +486,9 @@ const Separator = styled.div`
             height: 60px;
             top: -25px;
             width: 60px;            
+    }
+    @media (max-width: 992px) {
+        display: none;
     }
 `;
 // const OrderHeader = styled.div`
@@ -445,6 +528,11 @@ const BodyContainer = styled.div.attrs({ className: "container" })`
   @media (min-width: 1280px){
     max-width: 1170px;
   }
+  @media (max-width: 992px) {
+        width: 100%;
+        max-width: 100%;
+        padding: 0px;
+    }
   @media (max-width: 768px) {
     max-width: 100%;
     padding: 0px;
@@ -469,11 +557,8 @@ const BodyRow = styled.div`
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  @media (min-width: 1200px) {
-    margin-left: 8.333333%;
-    margin-right: 8.333333%;
-  }
-  @media (max-width: 1024px) {
+  color: #4d4d4d;
+  @media (max-width: 992px) {
     flex-direction: column;
   }
 `;
@@ -508,6 +593,7 @@ const Select = styled.select`
 const ResultsContainer = styled.div.attrs({ className: "w-6/6" })`
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   @media (max-width: 1024px) {
     width: 100% !important;
   }
