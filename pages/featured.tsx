@@ -98,6 +98,7 @@ const BodyContainer = styled.div.attrs({ className: "container" })`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  font-size: 18px;
 `;
 
 const Title = styled.h3`
@@ -117,7 +118,7 @@ const CategoryTitle = styled.h3`
   font-size: 25px;
   margin-right: 10px;
 
-  @media (max-width: 620px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -226,7 +227,7 @@ const RecommendedContainer = styled.div.attrs({
     width: 100%;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     width: 100% !important;
   }
 
