@@ -5,14 +5,13 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuItem from "@material-ui/core/MenuItem";
-import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 
 import { results, categories } from "../utils/data";
 
 const Index = () => (
   <>
-    <Header />
+    <NavBar />
     <Body />
     <Footer />
   </>
@@ -106,6 +105,10 @@ const Title = styled.h3`
   font-weight: 700;
   font-size: 25px;
   margin-right: 10px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const CategoryTitle = styled.h3`
@@ -342,13 +345,11 @@ const GridImageWrapper = styled.div.attrs({
   @media (max-width: 1024px) {
     width: 33.333333% !important;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     width: 50% !important;
-  }
-
-  @media (max-width: 320px) {
-    /* width: 150px; */
-    height: 220px;
+    min-height: auto;
+    height: auto;
+    min-width: auto;
   }
 `;
 
@@ -362,7 +363,9 @@ const GridImageContainer = styled.div`
   border-radius: 5px;
   /* cursor: pointer; */
   height: 100%;
-
+  @media (max-width: 500px) {
+    height: auto;
+  }
   &:hover {
     transform: translateY(-3px);
   }
@@ -388,11 +391,21 @@ const ImageItem = styled.div`
   background: #eee;
   height: 70%;
   width: 100%;
-
+  @media (max-width: 768px) {
+    position: relative;
+    padding: 60% 50%;
+  }
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
   }
 `;
 
@@ -400,6 +413,11 @@ const ImageContent = styled.div`
   height: 30%;
   width: 100%;
   padding: 10px 12px;
+  @media (max-width: 768px) {
+    .flex {
+      display: none
+    }
+  }
 `;
 
 const SmallTitle = styled.a`
