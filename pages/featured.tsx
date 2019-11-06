@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
-import MenuItem from "@material-ui/core/MenuItem";
 import { Footer } from "../components/Footer/Footer";
+import {NavBar} from "../components/NavBar/NavBar";
 
 import { results, categories } from "../utils/data";
 
@@ -18,18 +16,6 @@ const Index = () => (
 );
 
 export default Index;
-
-const NavBar = () => (
-  <FlatAppBar position="fixed">
-    <Toolbar>
-      <LogoContainer>
-        <Logo />
-      </LogoContainer>
-      <Button color="inherit">Signup</Button>
-      <Button color="inherit">Login</Button>
-    </Toolbar>
-  </FlatAppBar>
-);
 
 const Body = () => (
   <BodyWrapper>
