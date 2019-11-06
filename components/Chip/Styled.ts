@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Chip from '@material-ui/core/Chip'
 import theme from '../../utils/theme'
 
 export const ChipElem = styled.div `

@@ -60,7 +60,7 @@ const Body = () => (
                     <FormRowContent>
                         <RowLable>Where can we find you?</RowLable>
                         <InputWrapper>
-                            <Select type="number" placeholder="555-555-5555" >
+                            <Select type="number" defaultValue="twitter" placeholder="555-555-5555" >
                                 <option value="twitter">Twitter</option>
                                 <option value="instagram">Instagram</option>
                                 <option value="youtube">YouTube</option>
@@ -210,7 +210,6 @@ const Select = styled.select`
     border: 0;
     border-radius: 0;
     padding-left: 0;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMV…3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: 100%;

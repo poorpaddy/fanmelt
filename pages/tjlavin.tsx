@@ -2,10 +2,8 @@ import styled from "styled-components";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import StarIcon from "@material-ui/icons/Star";
 import BoltIcon from "@material-ui/icons/OfflineBoltSharp";
-import MenuItem from "@material-ui/core/MenuItem";
 import { Footer } from "../components/Footer/Footer";
 
 

@@ -19,7 +19,6 @@ const Index = () => (
 
 export default Index;
 
-const arr = Array.from(Array(50).keys());
 const NavBar = () => (
   <FlatAppBar position="fixed">
     <Toolbar>
@@ -304,10 +303,6 @@ const CategoryLinkName = styled.span`
 
 const CategoryLinkAmount = styled.span`
   color: #a1a1a1;
-`;
-
-const Item = styled(MenuItem)`
-  display: block;
 `;
 
 const Image = ({ price, image, title, name, tags }) => (
