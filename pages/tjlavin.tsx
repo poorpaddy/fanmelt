@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
 import StarIcon from "@material-ui/icons/Star";
 import BoltIcon from "@material-ui/icons/OfflineBoltSharp";
 import { Footer } from "../components/Footer/Footer";
+import {NavBar} from "../components/NavBar/NavBar";
+import {RelatedCard} from "../components/RelatedCard/RelatedCard";
+import {CardListItem} from "../components/CardListItem/CardListItem";
 
 
 const Index = () => (
@@ -16,18 +16,6 @@ const Index = () => (
 );
 
 export default Index;
-
-const NavBar = () => (
-  <FlatAppBar position="fixed">
-    <Toolbar>
-      <LogoContainer>
-        <Logo />
-      </LogoContainer>
-      <Button color="inherit">Signup</Button>
-      <Button color="inherit">Login</Button>
-    </Toolbar>
-  </FlatAppBar>
-);
 
 const Body = () => (
   <BodyWrapper>
@@ -120,10 +108,10 @@ const Body = () => (
             Latest
           </ResultTitle>
           <ResultsGrid>
-              <CatListItem />
-              <CatListItem />
-              <CatListItem />
-              <CatListItem />
+              <CardListItem />
+              <CardListItem />
+              <CardListItem />
+              <CardListItem />
           </ResultsGrid>
         </ResultsContainer>
       </BodyRow>
@@ -133,10 +121,10 @@ const Body = () => (
             Related
           </ResultTitle>
           <ResultsGrid>
-              <RealtedItem />
-              <RealtedItem />
-              <RealtedItem />
-              <RealtedItem />
+              <RelatedCard />
+              <RelatedCard />
+              <RelatedCard />
+              <RelatedCard />
           </ResultsGrid>
         </ResultsContainer>
       </BodyRow>
@@ -376,216 +364,6 @@ const ResultsGrid = styled.div`
   flex-wrap: wrap;
 `;
 
-const CatListItem = () => (
-    <CatItemWrapper>
-      <CatItemContainer>
-        <CatItemTxtSection>
-            <CatItemLeftContent>
-                <CatLeftTxt>
-                    A
-                </CatLeftTxt>
-            </CatItemLeftContent>
-            <CatItemRightContent>
-                <CatItemTitle>
-                    By Cubby for Brian
-                </CatItemTitle>
-                <CatItemDetailTxt>
-                    Details
-                </CatItemDetailTxt>
-            </CatItemRightContent>
-        </CatItemTxtSection>
-        <CatItemVideoSection>
-            <CatImageItem>
-                <img src={'/tjlavin_bottom.png'} alt="image" />
-                <ImgBtnContainer>
-                    <ImgBtnLeftContainer>
-                        <img src="/play.svg" alt="image" />
-                    </ImgBtnLeftContainer>
-                    <ImgBtnRightContainer>
-                        <img src={'heart-white.svg'} alt='image' />
-                        <img src={'message-circle-white.svg'} alt='image' />
-                    </ImgBtnRightContainer>
-                </ImgBtnContainer>
-            </CatImageItem>
-        </CatItemVideoSection>
-      </CatItemContainer>
-    </CatItemWrapper>
-);
-const ImgBtnContainer = styled.div`
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
-const CatImageItem = styled.div`
-  height: 70%;
-  width: 100%;
-
-  img {
-    border-radius: 24px;
-    border-top-left-radius: 0px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-const CatLeftTxt = styled.div`
-    font-weight: 700;
-    font-size: 24px;
-    padding-bottom: 2px;
-    text-transform: uppercase;
-`
-const CatItemContainer = styled.div`
-  box-shadow: 0 2PX 32PX 0 RGBA(0,0,0,.15);
-  position: relative;
-  background-size: cover;
-  background-color: #fff;
-  overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 24px;
-  /* cursor: pointer; */
-  height: 100%;
-
-  &:hover {
-    transform: translateY(-3px);
-  }
-`
-const CatItemDetailTxt = styled.div`
-    color: #999;
-    font-size: 14px;
-    font-weight: 500;
-`
-const CatItemTitle = styled.div`
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 200px;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.3;
-    @media (max-width: 1280px) {
-        width: 150px;
-      }
-    @media (max-width: 1024px) {
-        width: 100px;
-      }
-`
-const CatItemVideoSection = styled.div`
-    
-`
-const CatItemLeftContent = styled.div`
-    border-color: rgb(213, 56, 255);
-    background-color: rgb(213, 56, 255);
-    backgroundc-clip: border-box;
-    background-image: none;
-    algign-items: center;
-    background-position: top;
-    border-radius: 50%;
-    display: flex;
-    height: 36px;
-    justify-content: center;
-    margin-right: 14px;
-    width: 36px;
-`
-const CatItemRightContent = styled.div`
-    
-`
-const CatItemTxtSection = styled.div`
-    display: flex;
-    padding: 10px 15px;
-    color: #212121;
-    border-color: #dddddd'
-    border-bottom: none;
-`
-const CatItemWrapper = styled.div.attrs({
-    className: "xl:w-1/3"
-
-})`
-  margin-bottom: 20px;
-  min-height: 270px;
-  max-height: 650px;
-  padding-right: 10px !important;
-  padding-left: 10px !important;
-  min-width: 145px;
-  width: 33.3333% !important;
-
-  @media (max-width: 768px) {
-    width: 100% !important;
-    margin: 20px 30px;
-  }
-`;
-const ImgBtnRightContainer = styled.div`
-    display: flex;
-    align-items: center;
-    img {
-        width: 24px;
-        height: 24px;
-        background: transparent;
-        margin-bottom: 0px;
-        margin-left: 20px;
-        transform: scale(1);
-        transition: transform .1s;
-        &:hover {
-            transform: scale(1.3);
-            transition: transform .1s;
-        }
-    }
-`
-const ImgBtnLeftContainer = styled.div`
-    display: flex;
-    align-items: center;
-    img {
-        width: 60px;
-        height: 60px;
-        background: transparent;
-        margin-bottom: 0px;
-        transform: scale(1);
-        transition: transform .1s;
-        
-        &:hover {
-            transform: scale(1.3);
-            transition: transform .1s;
-        }
-    }
-`
-const RealtedItem = () => (
-  <GridImageWrapper>
-    <GridImageContainer>
-      <Price>$25</Price>
-      <ImageItem>
-        <img src={'/tjlavin_bottom.png'} alt="image" />
-      </ImageItem>
-      <ImageContent>
-        <SmallTitle>{'MTV - The Challenge'}</SmallTitle>
-        <Title>{'Zach Nichols'}</Title>
-      </ImageContent>
-    </GridImageContainer>
-  </GridImageWrapper>
-);
-
-const GridImageWrapper = styled.div.attrs({
-  className: "w-1/4"
-})`
-  margin-bottom: 20px;
-  min-height: 170px;
-  max-height: 350px;
-  padding-right: 5px !important;
-  padding-left: 5px !important;
-  min-width: 145px;
-
-  @media (max-width: 768px) {
-    width: 50% !important;
-  }
-
-  @media (max-width: 320px) {
-    /* width: 150px; */
-    height: 220px;
-  }
-`;
-
 const TopSectionLeftContainer = styled.div`
   width: 33.333333%;
   max-width: 280px;
@@ -609,92 +387,4 @@ const TopSectionRightContainer =  styled.div`
     width: 100%;
     
   }
-`;
-
-const GridImageContainer = styled.div`
-  box-shadow: 4px 4px 17px hsla(0, 0%, 85.9%, 0.5);
-  position: relative;
-  background-size: cover;
-  background-color: #fff;
-  overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 5px;
-  /* cursor: pointer; */
-  height: 100%;
-
-  &:hover {
-    transform: translateY(-3px);
-  }
-`;
-
-const Price = styled.span`
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
-  padding: 1px 14px;
-  position: absolute;
-  right: 11px;
-  top: 11px;
-
-  @media (max-width: 992px) {
-    font-size: 14px;
-  }
-`;
-
-const ImageItem = styled.div`
-  background: #eee;
-  height: 100%;
-  width: 100%;
-  max-height: 280px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const ImageContent = styled.div`
-  height: 30%;
-  width: 100%;
-  padding: 10px 12px;
-`;
-
-const SmallTitle = styled.a`
-  color: #6c6c6c;
-  font-size: 11px;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-
-  &:after {
-    font-size: 13px;
-    content: "•";
-    padding: 0 3px;
-    display: ${props => (props.bottom ? "inline-block" : "none")};
-  }
-
-  &:hover {
-    text-decoration: ${props => (props.bottom ? "underline" : null)};
-  }
-`;
-
-const FlatAppBar = styled(AppBar)`
-  box-shadow: none;
-`;
-
-const LogoContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`;
-
-const Logo = styled.img.attrs({ src: "/logo-cropped.png" })`
-  max-height: 50px;
-  margin: 0;
 `;
