@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
+import {NavBar} from "../components/NavBar/NavBar";
 import CheckIcon from "@material-ui/icons/Check";
 import { Footer } from "../components/Footer/Footer";
-
+import {RelatedCard} from "../components/RelatedCard/RelatedCard";
 
 const Index = () => (
     <>
@@ -15,18 +13,6 @@ const Index = () => (
 );
 
 export default Index;
-
-const NavBar = () => (
-    <FlatAppBar position="fixed">
-        <Toolbar>
-            <LogoContainer>
-                <Logo />
-            </LogoContainer>
-            <Button color="inherit">Signup</Button>
-            <Button color="inherit">Login</Button>
-        </Toolbar>
-    </FlatAppBar>
-);
 
 const Body = () => (
     <BodyWrapper>
@@ -153,10 +139,10 @@ const Body = () => (
                         Also check out
                     </ResultTitle>
                     <ResultsGrid>
-                        <RealtedItem />
-                        <RealtedItem />
-                        <RealtedItem />
-                        <RealtedItem />
+                        <RelatedCard />
+                        <RelatedCard />
+                        <RelatedCard />
+                        <RelatedCard />
                     </ResultsGrid>
                 </ResultsContainer>
             </BodyRow>
@@ -508,17 +494,6 @@ const BodyContainer = styled.div.attrs({ className: "container" })`
   }
 `;
 
-const Title = styled.h3`
-  color: #4d4d4d;
-  margin: 0;
-  word-wrap: break-word;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 20px;
-  font-weight: 700;
-`;
-
 const BodyRow = styled.div`
   margin-right: -15px;
   margin-left: -15px;
@@ -548,120 +523,4 @@ const ResultsContainer = styled.div.attrs({ className: "w-6/6" })`
 const ResultsGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
-
-const RealtedItem = () => (
-    <GridImageWrapper>
-        <GridImageContainer>
-            <Price>$25</Price>
-            <ImageItem>
-                <img src={'/tjlavin_bottom.png'} alt="image" />
-            </ImageItem>
-            <ImageContent>
-                <SmallTitle>{'MTV - The Challenge'}</SmallTitle>
-                <Title>{'Zach Nichols'}</Title>
-            </ImageContent>
-        </GridImageContainer>
-    </GridImageWrapper>
-);
-
-const GridImageWrapper = styled.div.attrs({
-    className: "w-1/4"
-})`
-  margin-bottom: 20px;
-  min-height: 170px;
-  max-height: 350px;
-  padding-right: 5px !important;
-  padding-left: 5px !important;
-  min-width: 145px;
-  @media (max-width: 768px) {
-    width: 50% !important;
-  }
-  @media (max-width: 320px) {
-    /* width: 150px; */
-    height: 220px;
-  }
-`;
-
-const GridImageContainer = styled.div`
-  box-shadow: 4px 4px 17px hsla(0, 0%, 85.9%, 0.5);
-  position: relative;
-  background-size: cover;
-  background-color: #fff;
-  overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 5px;
-  /* cursor: pointer; */
-  height: 100%;
-  &:hover {
-    transform: translateY(-3px);
-  }
-`;
-
-const Price = styled.span`
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
-  padding: 1px 14px;
-  position: absolute;
-  right: 11px;
-  top: 11px;
-  @media (max-width: 992px) {
-    font-size: 14px;
-  }
-`;
-
-const ImageItem = styled.div`
-  background: #eee;
-  height: 100%;
-  width: 100%;
-  max-height: 280px;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const ImageContent = styled.div`
-  height: 30%;
-  width: 100%;
-  padding: 10px 12px;
-`;
-
-const SmallTitle = styled.a`
-  color: #6c6c6c;
-  font-size: 11px;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  &:after {
-    font-size: 13px;
-    content: "•";
-    padding: 0 3px;
-    display: ${props => (props.bottom ? "inline-block" : "none")};
-  }
-  &:hover {
-    text-decoration: ${props => (props.bottom ? "underline" : null)};
-  }
-`;
-
-const FlatAppBar = styled(AppBar)`
-  box-shadow: none;
-`;
-
-const LogoContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`;
-
-const Logo = styled.img.attrs({ src: "/logo-cropped.png" })`
-  max-height: 50px;
-  margin: 0;
 `;

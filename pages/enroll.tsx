@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
+import {NavBar} from "../components/NavBar/NavBar";
 import { Footer } from "../components/Footer/Footer";
+import {InputText} from "../components/InputText/InputText"
 import React from "react";
 
 const Index = () => (
@@ -14,19 +13,6 @@ const Index = () => (
 );
 
 export default Index;
-
-const arr = Array.from(Array(50).keys());
-const NavBar = () => (
-    <FlatAppBar position="fixed">
-        <Toolbar>
-            <LogoContainer>
-                <Logo />
-            </LogoContainer>
-            <Button color="inherit">Signup</Button>
-            <Button color="inherit">Login</Button>
-        </Toolbar>
-    </FlatAppBar>
-);
 
 const Body = () => (
     <BodyWrapper>
@@ -41,21 +27,16 @@ const Body = () => (
                     </FormDesc>
                     <FormRowContent>
                         <RowLable>Your name</RowLable>
-                        <InputWrapper>
-                            <input type="text" placeholder="Michael Jordan" />
-                        </InputWrapper>
+                        <InputText type="text" placeholder="Michael Jordan" />
+
                     </FormRowContent>
                     <FormRowContent>
                         <RowLable>Email</RowLable>
-                        <InputWrapper>
-                            <input type="email" placeholder="you@example.com" />
-                        </InputWrapper>
+                        <InputText type="email" placeholder="you@example.com" />
                     </FormRowContent>
                     <FormRowContent>
                         <RowLable>Phone number (never shared)</RowLable>
-                        <InputWrapper>
-                            <input type="number" placeholder="555-555-5555" />
-                        </InputWrapper>
+                        <InputText type="number" placeholder="555-555-5555" />
                     </FormRowContent>
                     <FormRowContent>
                         <RowLable>Where can we find you?</RowLable>
@@ -73,15 +54,11 @@ const Body = () => (
                     </FormRowContent>
                     <FormRowContent>
                         <RowLable>Your handle</RowLable>
-                        <InputWrapper>
-                            <input type="text" placeholder="@jimmybuffet" />
-                        </InputWrapper>
+                        <InputText type="text" placeholder="@jimmybuffet" />
                     </FormRowContent>
                     <FormRowContent>
                         <RowLable>How many followers do you have?</RowLable>
-                        <InputWrapper>
-                            <input type="text" placeholder="400k" />
-                        </InputWrapper>
+                        <InputText type="text" placeholder="400k" />
                     </FormRowContent>
                     <FormRowContent>
                         <SubmitBtn>
@@ -227,20 +204,4 @@ const Select = styled.select`
         z-index: 3;
         outline: unset;
     }
-`;
-
-const FlatAppBar = styled(AppBar)`
-  box-shadow: none;
-`;
-
-const LogoContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`;
-
-const Logo = styled.img.attrs({ src: "/logo-cropped.png" })`
-  max-height: 50px;
-  margin: 0;
 `;

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import { useState, useRef, useLayoutEffect } from "react";
 import Fab from "@material-ui/core/Fab";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { SocialIcon } from "react-social-icons";
+import {NavBar} from "../components/NavBar/NavBar";
 
 const Index = () => (
   <>
@@ -20,18 +20,6 @@ const Index = () => (
 );
 
 export default Index;
-
-export const NavBar = () => (
-  <FlatAppBar position="fixed">
-    <Toolbar>
-      <LogoContainer>
-        <Logo />
-      </LogoContainer>
-      <Button color="inherit">Signup</Button>
-      <Button color="inherit">Login</Button>
-    </Toolbar>
-  </FlatAppBar>
-);
 
 const InfoBar = () => (
   <InfoBarContainer>
