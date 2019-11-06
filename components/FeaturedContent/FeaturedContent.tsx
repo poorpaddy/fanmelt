@@ -1,6 +1,5 @@
 import React from 'react'
 import { SearchAppBar, Chip, Card, Header } from ".."
-import { Footer } from '../Footer/Footer'
 import { Container } from './Styled'
 
 interface ITag {
