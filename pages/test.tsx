@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import {NavBar} from "../components/NavBar/NavBar";
-import CheckIcon from "@material-ui/icons/Check";
 import HeartIcon from "@material-ui/icons/FavoriteBorder";
 import DownloadIcon from "@material-ui/icons/CloudDownload";
 import { Footer } from "../components/Footer/Footer";
-import {RelatedCard} from "../components/RelatedCard/RelatedCard";
 
 const Index = () => (
     <>
