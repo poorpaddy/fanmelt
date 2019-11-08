@@ -180,6 +180,7 @@ const VideoIcon = styled.img`
     position: absolute;
     bottom: 25px;
     left: 15px;
+    cursor: pointer;
 `;
 
 const RightCol = styled.div`
