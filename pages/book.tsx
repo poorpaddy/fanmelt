@@ -48,8 +48,10 @@ const Body = () => (
                             <ShareButton>Share on Twitter</ShareButton>
                             <ShareButton>Share on FaceBook</ShareButton>
                             <DownloadButton>
-                                <DownloadImage />
-                                <DownloadText>Download Video</DownloadText>
+                                <DownloadContainer>
+                                    <DownloadImage />
+                                    <DownloadText>Download Video</DownloadText>
+                                </DownloadContainer>
                             </DownloadButton>
                         </ButtonGroup>
                         <ConfirmationTalentLink>
@@ -287,8 +289,6 @@ const DownloadButton = styled.a`
     color: #337ab7;
     margin-right: 10px;
     margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
     width: 145px;
 
     @media (max-width: 767px) {
@@ -296,11 +296,15 @@ const DownloadButton = styled.a`
     }
 `;
 
+const DownloadContainer = styled.div`
+    display: flex;
+`;
+
 const DownloadImage = styled.img.attrs({ src: "/download-to-storage-drive.svg", width: 15, height: 15 })`
 `;
 
 const DownloadText = styled.span`
-    margin-left: 8px;    
+    margin-left: 8px;
 `;
 
 const ConfirmationTalentLink = styled.div`
