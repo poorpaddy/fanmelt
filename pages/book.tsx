@@ -49,7 +49,7 @@ const Body = () => (
                             <ShareButton>Share on FaceBook</ShareButton>
                             <DownloadButton>
                                 <DownloadImage />
-                                Download Video
+                                <DownloadText>Download Video</DownloadText>
                             </DownloadButton>
                         </ButtonGroup>
                         <ConfirmationTalentLink>
@@ -212,6 +212,10 @@ const RightColContainer = styled.div`
     height: 100%;
     border-radius: 0 10px 10px 0;
     padding: 20px 15px 0;
+
+    @media (max-width: 767px) {
+        padding: 20px 0 0 0;
+    }
 `;
 
 const RightColContainerTitle = styled.p`
@@ -299,11 +303,20 @@ const DownloadButton = styled.a`
     color: #337ab7;
     margin-right: 10px;
     margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 145px;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;
 
-const DownloadImage = styled(DownloadIcon)`
-    margin-top: -11px;
-    margin-right: 5px;
+const DownloadImage = styled.img.attrs({ src: "/download-to-storage-drive.svg", width: 15, height: 15 })`
+`;
+
+const DownloadText = styled.span`
+    margin-left: 8px;    
 `;
 
 const ConfirmationTalentLink = styled.div`
@@ -364,7 +377,7 @@ const BookButton = styled.a`
     background-color: #fa005c;
     font-size: 18px;
     font-weight: 600;
-    padding: 5px 21px;
+    padding: 5px 18px;
     line-height: 1.5;
     border-radius: 3px;
     display: inline-block;
@@ -374,5 +387,11 @@ const BookButton = styled.a`
     vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
-    letter-spacing: .5px
+    letter-spacing: .5px;
+
+    &:hover, &:focus {
+        color: #fff;
+        background-color: #7b002d !important;
+        cursor: pointer!important;
+    }
 `;
