@@ -17,9 +17,9 @@ export default Index;
 const Body = () => (
     <BodyWrapper>
         <HeaderRow>
-            <TestHeader>
-                <TestHeaderTitle>Brian Baumgartner</TestHeaderTitle>
-            </TestHeader>
+            <Header>
+                <HeaderTitle>Brian Baumgartner</HeaderTitle>
+            </Header>
         </HeaderRow>
 
         <BodyContainer>
@@ -81,23 +81,6 @@ const HeaderRow = styled.div `
     
 `;
 
-const HeaderBackImage = styled.span `
-    background-image: url(https://d3el26csp1xekx.cloudfront.net/static/assets/confirmation-page/bigConfetti.png);
-    background-position: 0;
-    background-size: 1500px;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 200px;
-    margin-top: -60px;
-    z-index: 0;
-    display: block;
-    position: absolute;
-    
-    @media (min-width: 992px) {
-        display: none
-    }
-`;
-
 const BodyWrapper = styled.div`
   margin-top: 0;
   padding-top: 70px;
@@ -137,7 +120,7 @@ const BodyRow = styled.div`
     }
 `;
 
-const TestHeader = styled.div`
+const Header = styled.div`
     background: #000000;
     position: absolute;
     width: 100%;
@@ -156,7 +139,7 @@ const TestHeader = styled.div`
     }    
 `;
 
-const TestHeaderTitle = styled.span`
+const HeaderTitle = styled.span`
     font-family: fresh;
     font-size: 175px;
     line-height: 1;
