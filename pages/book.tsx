@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import {NavBar} from "../components/NavBar/NavBar";
 import HeartIcon from "@material-ui/icons/FavoriteBorder";
-import DownloadIcon from "@material-ui/icons/CloudDownload";
 import { Footer } from "../components/Footer/Footer";
+import { CustomButton } from "../components/Button/CustomButton";
+import { CustomImageButton } from "../components/ImageButton/CustomImageButton";
 
 const Index = () => (
     <>
@@ -45,14 +46,29 @@ const Body = () => (
                             "Hilarious!"
                         </DemoComment>
                         <ButtonGroup>
-                            <ShareButton>Share on Twitter</ShareButton>
-                            <ShareButton>Share on FaceBook</ShareButton>
-                            <DownloadButton>
-                                <DownloadContainer>
-                                    <DownloadImage />
-                                    <DownloadText>Download Video</DownloadText>
-                                </DownloadContainer>
-                            </DownloadButton>
+                            <CustomButton 
+                                text="Share on Twitter" 
+                                color="#337ab7"
+                                bgColor=""
+                                fSize="14px"
+                                fWeight="400"
+                                padding="5px 10px"
+                                lSpaceing=""
+                                hoverC="#000"
+                                hoverBG=""
+                            />
+                            <CustomButton
+                                text="Share on FaceBook"
+                                color="#337ab7"
+                                bgColor=""
+                                fSize="14px"
+                                fWeight="400"
+                                padding="5px 10px"
+                                lSpaceing=""
+                                hoverC="#000"
+                                hoverBG=""
+                            />
+                            <CustomImageButton text="Download Video" src="download-to-storage-drive.svg" />
                         </ButtonGroup>
                         <ConfirmationTalentLink>
                             <ConfirmationContainer>
@@ -66,9 +82,17 @@ const Body = () => (
                                     <Office>
                                         Actor - The Office
                                     </Office>
-                                    <BookButton href='/'>
-                                        Book Brian Baumgartner
-                                    </BookButton>
+                                    <CustomButton 
+                                        text="Book Brian Baumgartner" 
+                                        color="#fff"
+                                        bgColor="#fa005c"
+                                        fSize="18px"
+                                        fWeight="600"
+                                        padding="5px 18px"
+                                        lSpaceing=".5px"
+                                        hoverC="#fff"
+                                        hoverBG="#7b002d"
+                                    />
                                 </ConfirmationInformation>
                             </ConfirmationContainer>
                         </ConfirmationTalentLink>
@@ -245,68 +269,6 @@ const ButtonGroup = styled.div`
     margin-bottom: 24px;
 `;
 
-const ShareButton = styled.button`
-    background: transparent;
-    font-family: spinnler,Courier,monospace;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 1px 1px 4px rgba(0,0,0,.4);
-    transition: all .4s;
-    padding: 5px 10px;
-    font-size: 14px;
-    line-height: 1.5;
-    border-radius: 3px;
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    color: #337ab7;
-    margin-right: 10px;
-    margin-bottom: 10px;
-`;
-
-const DownloadButton = styled.a`
-    background: transparent;
-    font-family: spinnler,Courier,monospace;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 1px 1px 4px rgba(0,0,0,.4);
-    transition: all .4s;
-    padding: 5px 10px;
-    font-size: 14px;
-    line-height: 1.5;
-    border-radius: 3px;
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    color: #337ab7;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    width: 145px;
-
-    @media (max-width: 767px) {
-        display: none;
-    }
-`;
-
-const DownloadContainer = styled.div`
-    display: flex;
-`;
-
-const DownloadImage = styled.img.attrs({ src: "/download-to-storage-drive.svg", width: 15, height: 15 })`
-`;
-
-const DownloadText = styled.span`
-    margin-left: 8px;
-`;
-
 const ConfirmationTalentLink = styled.div`
     border-top: 1px solid #eee;
     padding-top: 24px;
@@ -351,35 +313,4 @@ const Office = styled.p`
     color: #999;
     margin-bottom: 3px;
     margin-top: 6px;
-`;
-
-const BookButton = styled.a`
-    background: transparent;
-    font-family: spinnler,Courier,monospace;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 1px 1px 4px rgba(0,0,0,.4);
-    transition: all .4s;
-    position: relative;
-    color: #fff;
-    background-color: #fa005c;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 5px 18px;
-    line-height: 1.5;
-    border-radius: 3px;
-    display: inline-block;
-    margin-bottom: 0;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    letter-spacing: .5px;
-
-    &:hover, &:focus {
-        color: #fff;
-        background-color: #7b002d !important;
-        cursor: pointer!important;
-    }
 `;
