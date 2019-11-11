@@ -21,7 +21,7 @@ export const DownloadButton = styled.a`
     color: #337ab7;
     margin-right: 10px;
     margin-bottom: 10px;
-    width: 145px;
+    
 
     @media (max-width: 767px) {
         display: none;
