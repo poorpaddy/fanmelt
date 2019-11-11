@@ -68,7 +68,7 @@ const Hero = () => {
   );
 };
 
-const SocialButtons = () => (
+export const SocialButtons = () => (
   <div className="flex flex-row">
     <SocialIcon
       url="https://www.facebook.com/fanmelt"
@@ -329,7 +329,7 @@ const usePosition = () => {
   return { positionElementRef, position };
 };
 
-const InfoBarContainer = styled.div.attrs({ className: "px-4 py-6" })`
+export const InfoBarContainer = styled.div.attrs({ className: "px-4 py-6" })`
   width: 100%;
   background-color: black;
   display: flex;
@@ -337,7 +337,7 @@ const InfoBarContainer = styled.div.attrs({ className: "px-4 py-6" })`
   justify-content: space-between;
 `;
 
-const ApplyButton = styled(Button)`
+export const ApplyButton = styled(Button)`
   color: white;
   border: 1px solid white;
 `;
