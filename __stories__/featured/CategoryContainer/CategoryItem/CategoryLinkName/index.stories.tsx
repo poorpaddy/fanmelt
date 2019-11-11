@@ -1,20 +1,17 @@
 import React from 'react';
 import { storiesOf  } from '@storybook/react';
-import { InfoBarContainer, ApplyButton, SocialButtons } from '../../../pages/index.tsx';
+import { CategoryLinkName } from '../../../../../pages/featured.tsx';
 
-storiesOf('Pages|Home/InfoBar', module)
+storiesOf('Pages|Featured/CategoryContainer/CategoryItem/CategoryLinkName', module)
   // If you want to set the option for all stories in of this kind
   .addParameters({ options: { panelPosition: 'bottom' } })
   .add(
-    'InfoBar',
+    'CategoryLinkName',
     () => {
     	return (
     		<div>
-    			<label>InfoBar</label><br /><br />
-    			<InfoBarContainer>
-            <SocialButtons />
-            <ApplyButton>Apply as talent</ApplyButton>
-          </InfoBarContainer>
+    			<label> you can change category link name</label><br />
+    			<CategoryLinkName>Featured</CategoryLinkName>
     		</div>
     	)
     },

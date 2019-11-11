@@ -2,8 +2,6 @@ import React from 'react';
 import { storiesOf  } from '@storybook/react';
 import { results, categories } from '../../utils/data';
 
-import { Footer } from "../../components/Footer/Footer";
-import {NavBar} from "../../components/NavBar/NavBar";
 import { 
   BodyWrapper,
   BodyContainer,
@@ -34,7 +32,6 @@ storiesOf('Pages|Featured', module)
     	return (
     		<div>
     			<label>Featured</label><br />
-          <NavBar />
     			<BodyWrapper>
             <BodyContainer>
               <BodyRow>
@@ -88,7 +85,6 @@ storiesOf('Pages|Featured', module)
               </BodyRow>
             </BodyContainer>
           </BodyWrapper>
-          <Footer />
     		</div>
     	)
     },

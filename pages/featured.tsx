@@ -95,6 +95,7 @@ export const Title = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-bottom: 0;
 `;
 
 export const CategoryTitle = styled.h3`
@@ -301,7 +302,7 @@ export const Image = ({ price, image, title, name, tags }) => (
       <ImageContent>
         <SmallTitle>{title}</SmallTitle>
         <Title>{name}</Title>
-        <div className="flex">
+        <div className="flex" style={{display: "flex"}}>
           {tags.length > 0 &&
             tags.map((tag, i) => (
               <SmallTitle key={i} bottom>
@@ -323,10 +324,12 @@ export const GridImageWrapper = styled.div.attrs({
   padding-right: 5px !important;
   padding-left: 5px !important;
   min-width: 145px;
+  width: 32% !important;
 
   @media (max-width: 1024px) {
-    width: 33.333333% !important;
+    width: 32% !important;
   }
+
   @media (max-width: 500px) {
     width: 50% !important;
     min-height: auto;
@@ -373,6 +376,7 @@ export const ImageItem = styled.div`
   background: #eee;
   height: 70%;
   width: 100%;
+  box-sizing: border-box;
   @media (max-width: 768px) {
     position: relative;
     padding: 60% 50%;

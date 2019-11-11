@@ -10,7 +10,7 @@ storiesOf('Pages|Featured/SearchBar', module)
     () => {
     	return (
     		<div>
-    			<label>SearchBar</label><br />
+    			<label>SearchBar</label><br /><br />
     			<SearchWrapper>
             <Input placeholder="Try 'Brett Favre' or 'Real Housewives" />
             <SearchIconContainer>
