@@ -3,7 +3,6 @@ import AppBar from "@material-ui/core/AppBar/AppBar";
 
 export const FlatAppBar = styled(AppBar)`
   box-shadow: none;
-  min-height: 70px;
 `;
 export const LogoContainer = styled.div`
   flex-grow: 1;
