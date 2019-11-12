@@ -45,7 +45,7 @@ const Body = () => (
                             <Select type="Number" defaultValue="twitter" placeholder="twitter" >
                                 {
                                     options.map((option, index) => {
-                                        <option value={option.key} key={index}>{option.value}</option>
+                                        return <option value={option.key} key={index}>{option.value}</option>
                                     })
                                 }
                             </Select>

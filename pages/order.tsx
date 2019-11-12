@@ -3,6 +3,7 @@ import {NavBar} from "../components/NavBar/NavBar";
 import CheckIcon from "@material-ui/icons/Check";
 import { Footer } from "../components/Footer/Footer";
 import {RelatedCard} from "../components/RelatedCard/RelatedCard";
+import { ImageContent } from "../components/ImageContent";
 
 const Index = () => (
     <>
@@ -13,6 +14,33 @@ const Index = () => (
 );
 
 export default Index;
+
+const rCards = [
+    {
+        price: "$25",
+        src: "tjlavin_bottom.png",
+        smallTitle: "MTV - The Challenge",
+        title: "Zach Nichols"
+    },
+    {
+        price: "$25",
+        src: "tjlavin_bottom.png",
+        smallTitle: "MTV - The Challenge",
+        title: "Zach Nichols"
+    },
+    {
+        price: "$25",
+        src: "tjlavin_bottom.png",
+        smallTitle: "MTV - The Challenge",
+        title: "Zach Nichols"
+    },
+    {
+        price: "$25",
+        src: "tjlavin_bottom.png",
+        smallTitle: "MTV - The Challenge",
+        title: "Zach Nichols"
+    }
+];
 
 const Body = () => (
     <BodyWrapper>
@@ -95,6 +123,7 @@ const Body = () => (
                             <DetailTitle>
                                 What happens next?
                             </DetailTitle>
+                            <ImageContent src='confirmation-email.svg' alt='image' text={'Check your email, We sent a confirmation to <b>liamdanielduffy@gmail.com</b>'} />
                             <RightContentRow>
                                 <ImageContainer>
                                     <img src={'/confirmation-email.svg'} alt={'image'} />
@@ -159,8 +188,8 @@ const ImageContainer = styled.div`
         width: 30px;
         min-width: 30px;
         background: #f7f7f7;
-    }
-`
+}`
+
 const RowTextContent = styled.div`
     
 `
@@ -171,7 +200,6 @@ const RightContentRow = styled.div`
     min-height: 54px;
     padding-bottom: 30px;
     color: #4d4d4d;
-    
 `
 const RightContentContainer = styled.div`
     padding: 0 40px;
