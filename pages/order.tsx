@@ -42,6 +42,33 @@ const rCards = [
     }
 ];
 
+const TalentLink = styled.a`
+    color: #337ab7;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .1px;
+    font-size: 18px;
+`;
+
+const imageContents = [
+    {
+        src: 'confirmation-email.svg',
+        text: ["Check your email, We sent a confirmation to ", <b>liamdanielduffy@gmail.com</b>]
+    },
+    {
+        src: 'confirmation-calendar.svg',
+        text: [<TalentLink> Adam Pike </TalentLink>, " has ", <b>4 days</b>, " to complete your request"]
+    },
+    {
+        src: 'confirmation-computer.svg',
+        text: ["When your request is completed, we'll email you a link to review, share, or download your Cameo"]
+    },
+    {
+        src: 'confirmation-credit-card.svg',
+        text: ["if ", <TalentLink> Adam Pike </TalentLink>, " isn't able to complete your request, the ", <b>$5</b>, " hold on your card will be removed within 5~7 business days."]
+    }
+];
+
 const Body = () => (
     <BodyWrapper>
         <HeaderRow>
@@ -123,41 +150,11 @@ const Body = () => (
                             <DetailTitle>
                                 What happens next?
                             </DetailTitle>
-                            <ImageContent src='confirmation-email.svg' alt='image' text={'Check your email, We sent a confirmation to <b>liamdanielduffy@gmail.com</b>'} />
-                            <RightContentRow>
-                                <ImageContainer>
-                                    <img src={'/confirmation-email.svg'} alt={'image'} />
-                                </ImageContainer>
-                                <RowTextContent>
-                                    Check your email, We sent a confirmation to <b>liamdanielduffy@gmail.com</b>
-                                </RowTextContent>
-                            </RightContentRow>
-                            <RightContentRow>
-                                <ImageContainer>
-                                    <img src={'/confirmation-calendar.svg'} alt={'image'} />
-                                </ImageContainer>
-                                <RowTextContent>
-                                    <TalentLink> Adam Pike </TalentLink> has <b>4 days</b> to complete your request
-                                </RowTextContent>
-                            </RightContentRow>
-                            <RightContentRow>
-                                <ImageContainer>
-                                    <img src={'/confirmation-computer.svg'} alt={'image'} />
-                                </ImageContainer>
-                                <RowTextContent>
-                                    When your request is completed, we'll email you a link to review, share, or download your Cameo
-                                </RowTextContent>
-                            </RightContentRow>
-                            <RightContentRow>
-                                <ImageContainer>
-                                    <img src={'/confirmation-credit-card.svg'} alt={'image'} />
-                                </ImageContainer>
-                                <RowTextContent>
-                                    if <TalentLink>  Adam Pike </TalentLink>
-                                    isn't able to complete your request, the <b>$5</b> hold on your card will be removed within 5~7
-                                    business days.
-                                </RowTextContent>
-                            </RightContentRow>
+                            {
+                                imageContents.map((content, index) => {
+                                    return <ImageContent src={content.src} text={content.text} key={index} />
+                                })
+                            }
                         </RightContentContainer>
                     </RightContentWrapper>
                 </RightCol>
@@ -168,10 +165,11 @@ const Body = () => (
                         Also check out
                     </ResultTitle>
                     <ResultsGrid>
-                        <RelatedCard />
-                        <RelatedCard />
-                        <RelatedCard />
-                        <RelatedCard />
+                        {
+                            rCards.map((card, index) => {
+                                return <RelatedCard price={card.price} src={card.src} smallTitle={card.smallTitle} title={card.title} key={index} />
+                            })
+                        }
                     </ResultsGrid>
                 </ResultsContainer>
             </BodyRow>
@@ -402,14 +400,8 @@ const OrderStatus = styled.div`
     @media (max-width: 992px) {
         text-align: left;
     }
-`
-const TalentLink = styled.a`
-    color: #337ab7;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: .1px;
-    font-size: 18px;
 `;
+
 const LeftCol = styled.div`    
     position: relative;
     min-height: 1px;    

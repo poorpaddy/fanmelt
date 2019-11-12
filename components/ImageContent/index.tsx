@@ -1,17 +1,16 @@
 import React from 'react';
-import { RightContentRow, ImageContainer, RowTextContent } from './Styled';
+import { RightContentRow, ImageContainer, RowTextContent, TalentLink } from './Styled';
 
 interface IProps {
     src: string;
-    alt: string;
     text: any;
 }
 
-export const ImageContent = ({ src, alt, text }: IProps) => {
+export const ImageContent = ({ src, text }: IProps) => {
     return (
         <RightContentRow>
 	        <ImageContainer>
-	            <img src={src} alt={alt} />
+	            <img src={src} alt='image' />
 	        </ImageContainer>
 	        <RowTextContent>
 	            {text}
